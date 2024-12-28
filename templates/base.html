@@ -16,6 +16,42 @@
     <body>
         {% include 'includes/header.html' %}
         <main>
+            <aside>
+                <ul class="nav  nav-pills">
+                {% with request.resolver_match.view_name as view_name %}
+                  <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:main-page' %}active{% endif %}" href="{% url 'pages:main-page' %}">
+                      Главная страница
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:statistics' %}active{% endif %}" href="{% url 'pages:statistics' %}">
+                      Общая статистика
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:demand' %}active{% endif %}" href="{% url 'pages:demand' %}">
+                      Восстребованность
+                    </a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:geography' %}active{% endif %}" href="{% url 'pages:geography' %}">
+                      География
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:skills' %}active{% endif %}" href="{% url 'pages:skills' %}">
+                      Навыки
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if view_name == 'pages:last-vacancies' %}active{% endif %}" href="{% url 'pages:last-vacancies' %}">
+                      Последние вакансии
+                    </a>
+                  </li>
+                {% endwith %}
+              </ul>
+            </aside>
             <div>
                 {% block content %}
                 {% endblock %}
