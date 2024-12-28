@@ -20,7 +20,7 @@
                 <ul class="nav  nav-pills">
                 {% with request.resolver_match.view_name as view_name %}
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:main-page' %}active{% endif %}" href="{% url 'pages:main-page' %}">
+                    <a class="nav-link {% if view_name == 'pages:home' %}active{% endif %}" href="{% url 'pages:home' %}">
                       Главная страница
                     </a>
                   </li>
