@@ -7,13 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="сделал заглушки для всех страниц">
-      <change afterPath="$PROJECT_DIR$/static_dev/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/home.html" afterDir="false" />
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="сделал главную страницу со стилями">
+      <change afterPath="$PROJECT_DIR$/analysis/demand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/demand_graphs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/commands/fetch_currency.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/commands/fetch_vacancies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/demand.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +28,13 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -72,6 +85,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\pages" />
+      <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\DjangoProject\management\commands" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="DjangoProject" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject" />
@@ -118,7 +137,7 @@
       <workItem from="1735109310247" duration="2704000" />
       <workItem from="1735115390994" duration="215000" />
       <workItem from="1735115650843" duration="1820000" />
-      <workItem from="1735373886897" duration="6411000" />
+      <workItem from="1735373886897" duration="10285000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -168,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735377551523</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="сделал главную страницу со стилями">
+      <option name="closed" value="true" />
+      <created>1735390231605</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1735390231605</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +219,8 @@
     <MESSAGE value="Добавил шаблоны для header, footer, так же добавил основную навигацию для сайта" />
     <MESSAGE value="добавил главную страницу" />
     <MESSAGE value="сделал заглушки для всех страниц" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделал заглушки для всех страниц" />
+    <MESSAGE value="сделал главную страницу со стилями" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал главную страницу со стилями" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
