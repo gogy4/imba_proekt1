@@ -7,33 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="поменял скрипт demand">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="исправил скрипты для графиков и для таблиц, сделал так же нормальную стилизацию страниц">
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_dev/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/geography/img/area_count_all_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/geography/img/area_count_prof_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/geography/img/area_salary_all_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/geography/img/area_salary_prof_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_all_2023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/bar_chart_prof_2023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/demand.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/demand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/geography.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/geography.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/skills.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +214,7 @@
       <workItem from="1736612602487" duration="250000" />
       <workItem from="1736612866192" duration="912000" />
       <workItem from="1736613795409" duration="1548000" />
-      <workItem from="1736615419491" duration="4771000" />
+      <workItem from="1736615419491" duration="5044000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -321,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736608499282</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="исправил скрипты для графиков и для таблиц, сделал так же нормальную стилизацию страниц">
+      <option name="closed" value="true" />
+      <created>1736620308453</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736620308453</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +331,8 @@
     <MESSAGE value="сделал главную страницу со стилями" />
     <MESSAGE value="сделал скелет для общей статистики, сделал графики для каждой страницы, каждую страницу вынес как отдельное приложение" />
     <MESSAGE value="поменял скрипт demand" />
-    <option name="LAST_COMMIT_MESSAGE" value="поменял скрипт demand" />
+    <MESSAGE value="исправил скрипты для графиков и для таблиц, сделал так же нормальную стилизацию страниц" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправил скрипты для графиков и для таблиц, сделал так же нормальную стилизацию страниц" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
