@@ -1,63 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}<title>Последние вакансии</title>{% endblock %}
+{% block title %}Последние ваканси{% endblock %}
 {% block content %}
-
-    <h2>Навыки</h2>
-
-    <form method="get" action="{% url 'skills:skills' %}">
-        <label for="year">Выберите год:</label>
-        <select name="year" id="year">
-            {% for year in unique_years %}
-                <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Применить</button>
-    </form>
-
+    <h2 class="section-title">Навыки</h2>
     <div class="year-block">
-        <h3>Динамика навыков по годам (Общая) - {{ selected_year }}</h3>
+        <h3 class="skills-header">ТОП-20 навыков по годам для {{ prof }}. Наиболее высокочастотные навыки</h3>
         <div class="table-graph-wrapper">
-            <table>
-                <thead>
+            <table class="skills-table">
+                <thead class="skills-table-header">
                     <tr>
-                        <th>Навык</th>
-                        <th>Количество</th>
+                        <th class="skill-column">Навык</th>
+                        <th class="count-column">Количество</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {% for row in skills_all %}
-                        <tr>
-                            <td>{{ row.skill_name }}</td>
-                            <td>{{ row.count }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <img src="{% static 'skills/img/bar_chart_all_' %}{{ selected_year }}.png" alt="График" width="1000" height="600">
-        </div>
-    </div>
-
-    <div class="year-block">
-        <h3>Динамика навыков по годам ({{ prof }}) - {{ selected_year }}</h3>
-        <div class="table-graph-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Навык</th>
-                        <th>Количество</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <tbody class="skills-table-body">
                     {% for row in skills_prof %}
-                        <tr>
-                            <td>{{ row.skill_name }}</td>
-                            <td>{{ row.count }}</td>
+                        <tr class="skills-row">
+                            <td class="skill-name">{{ row.skill_name }}</td>
+                            <td class="skill-count">{{ row.count }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <img src="{% static 'skills/img/bar_chart_prof_' %}{{ selected_year }}.png" alt="График" width="1000" height="600">
+            <img class="skills-plot" src="{% static 'skills/img/skills_plot.png' %}" alt="График" width="1000" height="600">
         </div>
     </div>
 {% endblock %}

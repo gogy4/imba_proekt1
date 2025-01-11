@@ -4,8 +4,8 @@
 {% block content %}
     <h2 class="demand-title">Востребованность</h2>
 
-    <h3 class="dynamic-title">Динамика уровня зарплат по годам (C/C++ программист)</h3>
-    <div class="table-graph-wrapper">
+    <h3 class="dynamic-title">Динамика уровня зарплат по годам ({{ prof }})</h3>
+    <div class="table-graph-wrapper salary-dynamics-wrapper">
         <table class="dynamic-salary-table">
             <tbody>
                 {% for row in dynamic_salary_all %}
@@ -20,8 +20,8 @@
         <table class="dynamic-salary-table">
             <thead>
                 <tr>
-                    <th>Год</th>
-                    <th>Средняя зарплата</th>
+                    <th class="header-year">Год</th>
+                    <th class="header-salary">Средняя зарплата</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,8 +35,8 @@
         </table>
     </div>
 
-    <h3 class="dynamic-title">Динамика количества вакансий по годам (C/C++ программист)</h3>
-    <div class="table-graph-wrapper">
+    <h3 class="dynamic-title">Динамика количества вакансий по годам ({{ prof }})</h3>
+    <div class="table-graph-wrapper vacancy-dynamics-wrapper">
 
         <table class="dynamic-count-table">
             <tbody>

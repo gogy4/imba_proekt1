@@ -2,94 +2,51 @@
 {% load static %}
 
 {% block title %}
-    <title>География</title>
+    География
 {% endblock %}
 
 {% block content %}
-    <h2>География</h2>
-
-    <h3>Уровень зарплат по городам</h3>
-    <div class="table-graph-wrapper">
-        <table>
+    <h2 class="geography-title">География</h2>
+    <h3 class="salary-level-title">Уровень зарплат по городам ({{ prof }})</h3>
+    <div class="table-graph-wrapper geography-table-wrapper">
+        <table class="geography-table">
             <thead>
                 <tr>
-                    <th>Город</th>
-                    <th>Средняя Зарплата</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in area_salary_all %}
-                    <tr>
-                        <td>{{ row.area_name }}</td>
-                        <td>{{ row.average_salary }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'geography/img/area_salary_all_plot.png' %}" alt="График" width="1200" height="600">
-    </div>
-
-    <h3>Доля вакансий по городам</h3>
-    <div class="table-graph-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Город</th>
-                    <th>Доля вакансий</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in area_count_all %}
-                    <tr>
-                        <td>{{ row.area_name }}</td>
-                        <td>{{ row.vacancy_count }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'geography/img/area_count_all_plot.png' %}" alt="График" width="1200" height="600">
-    </div>
-
-    <h3>Уровень зарплат по городам ({{ prof }})</h3>
-    <div class="table-graph-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Город</th>
-                    <th>Средняя Зарплата</th>
+                    <th class="geography-city-header">Город</th>
+                    <th class="geography-salary-header">Средняя Зарплата</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in area_salary_prof %}
-                    <tr>
-                        <td>{{ row.area_name }}</td>
-                        <td>{{ row.average_salary }}</td>
+                    <tr class="geography-row">
+                        <td class="geography-city">{{ row.area_name }}</td>
+                        <td class="geography-salary">{{ row.average_salary }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'geography/img/area_salary_prof_plot.png' %}" alt="График" width="1200" height="600">
+        <img src="{% static 'geography/img/average_salaries.png' %}" alt="График" class="geography-salary-graph">
     </div>
 
-    <h3>Доля вакансий по городам ({{ prof }})</h3>
-    <div class="table-graph-wrapper">
-        <table>
+    <h3 class="vacancy-share-title">Доля вакансий по городам ({{ prof }})</h3>
+    <div class="table-graph-wrapper geography-table-wrapper">
+        <table class="geography-table">
             <thead>
                 <tr>
-                    <th>Город</th>
-                    <th>Доля вакансий</th>
+                    <th class="geography-city-header">Город</th>
+                    <th class="geography-vacancy-header">Доля вакансий</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in area_count_prof %}
-                    <tr>
-                        <td>{{ row.area_name }}</td>
-                        <td>{{ row.vacancy_count }}</td>
+                    <tr class="geography-row">
+                        <td class="geography-city">{{ row.area_name }}</td>
+                        <td class="geography-vacancy">{{ row.vacancy_count }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'geography/img/area_count_prof_plot.png' %}" alt="График" width="1200" height="600">
+        <img src="{% static 'geography/img/vacancy_distribution.png' %}" alt="График" class="geography-vacancy-graph">
     </div>
 
 {% endblock %}

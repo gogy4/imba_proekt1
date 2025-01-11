@@ -1,195 +1,405 @@
-/* Основные стили для контейнера и базовой разметки */
+/* Общие стили для body */
+.body-class {
+    font-family: Arial, sans-serif;
+    background-color: #d3d3d3;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для главного контейнера */
+.main-content {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Стили для навигации в боковой панели */
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+/* Стили для каждого элемента навигации */
+.nav-item {
+    margin-bottom: 10px;
+}
+
+/* Стили для ссылок в навигации */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Стили для активного элемента навигации */
+.nav-link.active {
+    background-color: #800080;
+}
+
+/* Стили при наведении на ссылку */
+.nav-link:hover {
+    background-color: #555;
+}
+
+/* Стили для основного контента */
+.main-content-area {
+    flex-grow: 1;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для футера */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Стили для главного заголовка и навигационной панели */
+.main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 40px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0; /* Убираем нижний отступ */
+}
+
+/* Стили для логотипа */
+.main-header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Применяем такие же изменения для навигации */
+.main-header .nav-link {
+    font-size: 14px;
+}
+
+/* Общие стили для контейнера */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f9f9f9;
+    padding: 0;
 }
 
-.profession-description {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin-top: 40px;
-}
-
-/* Заголовки секций */
+/* Стили для заголовков секций */
 .section-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #0056b3;
-    border-bottom: 2px solid #0056b3;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-/* Параграфы */
-.text-paragraph {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    text-align: justify;
-}
-
-/* Стилизация ссылок */
-.resource-link {
-    color: #007BFF;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.resource-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* Подчеркивание текста и выделение */
-.underline-text {
-    text-decoration: underline;
-}
-
-.highlight-text {
-    color: #d9534f;
+    font-size: 28px;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.italic-text {
-    font-style: italic;
+/* Стиль для параграфов с текстом */
+.text-paragraph {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+/* Подсветка текста */
+.highlight-text {
+    color: #800080;
+    font-weight: bold;
 }
 
 /* Стили для изображений */
 .programming-logo {
     display: block;
-    margin: 30px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
 }
 
+/* Подпись под изображением */
 .image-caption {
-    font-style: italic;
-    font-size: 0.9em;
-    color: #666;
+    font-size: 14px;
+    text-align: center;
+    color: #777;
 }
 
-/* Списки с преимуществами и ресурсами */
-.advantages-list, .resources-list {
-    margin: 20px 0;
-    padding-left: 40px;
+/* Стили для списка преимуществ */
+.advantages-list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.list-item, .resource-item {
-    margin-bottom: 10px;
-    font-size: 1.1em;
+/* Стили для списка ресурсов */
+.resources-list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .container {
+.resource-link {
+    font-size: 16px;
+    color: #008CBA;
+    text-decoration: none;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивные стили для мобильных устройств */
+
+/* Для экранов шириной до 1024px */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
         padding: 10px;
     }
-    .profession-description {
-        padding: 20px;
+
+    .sidebar {
+        width: 250px;
+        margin-bottom: 20px;
     }
-    .section-title {
-        font-size: 1.5em;
+
+    .main-content-area {
+        margin-left: 0;
     }
-    .text-paragraph, .list-item, .resource-item {
-        font-size: 1em;
+
+    .main-header .logo {
+        font-size: 20px;
     }
-    .programming-logo {
-        width: 90%;
+
+    .main-header .nav-link {
+        font-size: 12px;
     }
 }
 
-/* Основные стили для таблиц */
-table {
+/* Для экранов шириной до 768px */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding: 15px;
+    }
+
+    .main-content-area {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .text-paragraph {
+        font-size: 14px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* Для экранов шириной до 480px */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-header {
+        padding: 10px 20px;
+    }
+
+    .main-header .logo {
+        font-size: 18px;
+    }
+
+    .main-content {
+        padding: 5px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .text-paragraph {
+        font-size: 12px;
+    }
+}
+
+/* Центрирование заголовков */
+.demand-title, .dynamic-title {
+    text-align: center;
+}
+
+/* Стили для таблиц */
+.dynamic-salary-table, .dynamic-count-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
-thead th {
-    background-color: #0056b3;
-    color: #ffffff;
-    text-align: left;
+.dynamic-salary-table th, .dynamic-count-table th,
+.dynamic-salary-table td, .dynamic-count-table td {
     padding: 10px;
-    font-size: 1.1em;
-    text-transform: uppercase;
-}
-
-tbody td {
-    padding: 10px;
+    text-align: center;
     border: 1px solid #ddd;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+.salary-row, .count-row {
+    background-color: #f9f9f9;
 }
 
-tbody tr:hover {
-    background-color: #eaf4ff;
+.salary-data, .vacancy-data {
+    font-weight: bold;
 }
 
-.no-data-message {
-    color: #d9534f;
-    font-size: 1.2em;
-    text-align: center;
-    margin: 20px 0;
+/* Увеличение размеров графиков (в 2 раза от предыдущих размеров) */
+/* Увеличение размеров графиков на 1.2 раза */
+/* Увеличение размеров графиков еще чуть-чуть */
+/* Увеличение размеров графиков в 1.1 раза */
+.dynamic-salary-graph, .dynamic-count-graph {
+    max-width: 817px;  /* Увеличенная ширина */
+    width: 100%;  /* Адаптация по ширине контейнера */
+    height: 537.77px;  /* Увеличенная высота */
+    display: block;
+    margin: 0 auto; /* Центрирование графиков */
 }
 
-/* Стили для графиков */
+/* Общее увеличение для всех изображений */
 .graph {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 60%;  /* Увеличенная ширина */
+    height: 60%;  /* Увеличенная высота */
+    display: block;
+    margin: 0 auto; /* Центрирование */
 }
 
-/* Стили для заголовков таблиц и секций */
-.dynamic-title {
-    font-size: 1.8em;
-    color: #333;
-    margin-bottom: 15px;
+
+
+
+/* Центрирование заголовков */
+.geography-title, .salary-level-title, .vacancy-share-title {
     text-align: center;
-    border-bottom: 2px solid #0056b3;
-    padding-bottom: 5px;
-    display: inline-block;
 }
 
-/* Стили для контейнера таблицы и графика */
-.table-graph-wrapper {
-    margin-bottom: 40px;
+/* Стили для таблиц */
+.geography-table-wrapper {
+    text-align: center; /* Центрирование таблицы и графика */
+    margin: 20px auto;
+}
+
+.geography-table {
+    width: 80%;  /* Установка ширины таблицы */
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.geography-table th, .geography-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.geography-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.geography-city-header, .geography-salary-header, .geography-vacancy-header {
+    font-weight: bold;
+}
+
+/* Стили для изображений (графиков) */
+.geography-salary-graph, .geography-vacancy-graph {
+    width: 70%;  /* Немного уменьшенная ширина графика */
+    height: 70%;  /* Немного уменьшенная высота графика */
+    display: block;
+    margin: 20px auto;  /* Центрирование графика */
+}
+
+/* Дополнительные стили для таблиц */
+.geography-row td {
+    font-size: 16px;
+}
+
+/* Стили для ячеек таблицы */
+.geography-city, .geography-salary, .geography-vacancy {
+    font-weight: normal;
+}
+
+/* Стили для блока с таблицей и графиком */
+.year-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: center; /* Центрируем содержимое по вертикали */
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Стили для данных таблиц */
-.year-data, .salary-data, .vacancy-data, .salary-prof-data, .vacancy-prof-data {
-    font-size: 1.1em;
-    color: #555;
-    text-align: left;
+/* Стили для таблицы */
+.skills-table {
+    margin: 0 auto; /* Центрируем таблицу */
+    border-collapse: collapse; /* Убираем промежутки между ячейками */
+    width: 80%; /* Таблица занимает 80% ширины экрана */
 }
 
-/* Уменьшение шрифта для мобильных устройств */
-@media (max-width: 768px) {
-    thead th, tbody td {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-    .graph {
-        width: 100%;
-    }
-    .dynamic-title {
-        font-size: 1.4em;
-    }
-    .no-data-message {
-        font-size: 1em;
-    }
+.skills-table-header {
+    background-color: #f1f1f1; /* Цвет фона для шапки таблицы */
+}
+
+.skills-table th, .skills-table td {
+    padding: 10px 15px; /* Отступы в ячейках */
+    border: 1px solid #ddd; /* Границы таблицы */
+}
+
+.skills-table th {
+    text-align: left; /* Выравнивание текста в шапке по левому краю */
+}
+
+.skills-table td {
+    text-align: center; /* Центрируем текст в таблице */
+}
+
+/* Стили для графика */
+.skills-plot {
+    display: block;
+    margin: 30px auto; /* Центрируем график по горизонтали */
+    width: 80%; /* Новый размер графика по ширине */
+    height: 80%; /* Новый размер графика по высоте */
+}
+
+/* Добавим небольшие отступы вокруг блоков */
+.table-graph-wrapper {
+    margin-top: 30px;
 }
