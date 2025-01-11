@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'pages'
+    'demand',
+    'geography',
+    'home',
+    'last_vacancies',
+    'skills',
+    'statistics_page'
 
 ]
 

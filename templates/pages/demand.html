@@ -1,91 +1,107 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}<title>Востребованность</title>{% endblock %}
+{% block title %}Востребованность{% endblock %}
 {% block content %}
-    <h2>Востребованность</h2>
+    <h2 class="demand-title">Востребованность</h2>
 
-    <h3>Динамика уровня зарплат по годам (Общая)</h3>
+    <h3 class="dynamic-title">Динамика уровня зарплат по годам (Общая)</h3>
     <div class="table-graph-wrapper">
-        <table>
+        {% if dynamic_salary_all %}
+        <table class="dynamic-salary-table">
             <thead>
                 <tr>
-                    <th>Год</th>
-                    <th>Средняя Зарплата</th>
+                    <th class="year-header">Год</th>
+                    <th class="salary-header">Средняя Зарплата</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in dynamic_salary_all %}
-                    <tr>
-                        <td>{{ row.year }}</td>
-                        <td>{{ row.average_salary }}</td>
+                    <tr class="salary-row">
+                        <td class="year-data">{{ row.year }}</td>
+                        <td class="salary-data">{{ row.average_salary }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'demand/img/dynamic_salary_all_plot.png' %}" alt="График" width="800" height="400">
+        {% else %}
+            <p class="no-data-message">Нет данных для отображения.</p>
+        {% endif %}
+        <img src="{% static 'demand/img/dynamic_salary_all_plot.png' %}" alt="График" class="graph dynamic-salary-graph">
     </div>
 
-    <h3>Динамика количества вакансий по годам (Общая)</h3>
+    <h3 class="dynamic-title">Динамика количества вакансий по годам (Общая)</h3>
     <div class="table-graph-wrapper">
-        <table>
+        {% if dynamic_count_all %}
+        <table class="dynamic-count-table">
             <thead>
                 <tr>
-                    <th>Год</th>
-                    <th>Количество Вакансий</th>
+                    <th class="year-header">Год</th>
+                    <th class="vacancy-header">Количество Вакансий</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in dynamic_count_all %}
-                    <tr>
-                        <td>{{ row.year }}</td>
-                        <td>{{ row.vacancy_count }}</td>
+                    <tr class="count-row">
+                        <td class="year-data">{{ row.year }}</td>
+                        <td class="vacancy-data">{{ row.vacancy_count }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'demand/img/dynamic_count_all_plot.png' %}" alt="График" width="1000" height="600">
+        {% else %}
+            <p class="no-data-message">Нет данных для отображения.</p>
+        {% endif %}
+        <img src="{% static 'demand/img/dynamic_count_all_plot.png' %}" alt="График" class="graph dynamic-count-graph">
     </div>
 
-    <h3>Динамика уровня зарплат по годам (C/C++ программист)</h3>
+    <h3 class="dynamic-title">Динамика уровня зарплат по годам (C/C++ программист)</h3>
     <div class="table-graph-wrapper">
-        <table>
+        {% if dynamic_salary_prof %}
+        <table class="dynamic-salary-prof-table">
             <thead>
                 <tr>
-                    <th>Год</th>
-                    <th>Средняя Зарплата</th>
+                    <th class="year-header">Год</th>
+                    <th class="salary-header">Средняя Зарплата</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in dynamic_salary_prof %}
-                    <tr>
-                        <td>{{ row.year }}</td>
-                        <td>{{ row.average_salary }}</td>
+                    <tr class="salary-prof-row">
+                        <td class="year-data">{{ row.year }}</td>
+                        <td class="salary-prof-data">{{ row.average_salary }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'demand/img/dynamic_salary_c_cpp_plot.png' %}" alt="График" width="1000" height="600">
+        {% else %}
+            <p class="no-data-message">Нет данных для отображения.</p>
+        {% endif %}
+        <img src="{% static 'demand/img/dynamic_salary_c_cpp_plot.png' %}" alt="График" class="graph dynamic-salary-prof-graph">
     </div>
 
-    <h3>Динамика количества вакансий по годам (C/C++ программист)</h3>
+    <h3 class="dynamic-title">Динамика количества вакансий по годам (C/C++ программист)</h3>
     <div class="table-graph-wrapper">
-        <table>
+        {% if dynamic_count_prof %}
+        <table class="dynamic-count-prof-table">
             <thead>
                 <tr>
-                    <th>Год</th>
-                    <th>Количество Вакансий</th>
+                    <th class="year-header">Год</th>
+                    <th class="vacancy-header">Количество Вакансий</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in dynamic_count_prof %}
-                    <tr>
-                        <td>{{ row.year }}</td>
-                        <td>{{ row.vacancy_count }}</td>
+                    <tr class="count-prof-row">
+                        <td class="year-data">{{ row.year }}</td>
+                        <td class="vacancy-prof-data">{{ row.vacancy_count }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <img src="{% static 'demand/img/dynamic_count_c_cpp_plot.png' %}" alt="График" width="1000" height="600">
+        {% else %}
+            <p class="no-data-message">Нет данных для отображения.</p>
+        {% endif %}
+        <img src="{% static 'demand/img/dynamic_count_c_cpp_plot.png' %}" alt="График" class="graph dynamic-count-prof-graph">
     </div>
 
 {% endblock %}

@@ -1,47 +1,46 @@
-
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Основы C/C++ Программирования {% endblock %}
+{% block title %} C/C++ программист {% endblock %}
 
 {% block content %}
-<div class="container">
-        <h2>Описание профессии</h2>
-        <p>
-            Профессия <strong>C/C++ программиста</strong> является одной из самых востребованных и уважаемых в мире разработки программного обеспечения. Эти языки программирования считаются основополагающими в IT-сфере и широко используются для создания системного программного обеспечения, драйверов, игр, высокопроизводительных приложений и встраиваемых систем.
-        </p>
-        <p>
-            <u>C</u> — это язык, с которого началась история современного программирования. Он был разработан в 1972 году Деннисом Ритчи в лабораториях Bell Labs. С тех пор <strong>C</strong> стал фундаментом для разработки операционных систем, таких как Unix и Linux. Благодаря своей гибкости и скорости, он до сих пор является стандартом для системного программирования.
-        </p>
-        <p>
-            <u>C++</u> — это объектно-ориентированное расширение C, созданное Бьёрном Страуструпом в 1980-х годах. Этот язык добавил к <strong>C</strong> новые возможности, такие как <em>классы, шаблоны и перегрузка операторов</em>, что сделало его мощным инструментом для разработки сложных программных систем. Сегодня <strong>C++</strong> активно используется в разработке игр, высокопроизводительных приложений и программ для работы с графикой.
-        </p>
-        <img src="{% static 'img/logo_c.png' %}" alt="C Programming" width="300">
-        <p style="text-align: center;"><em>Логотип C</em></p>
+<div class="container profession-description">
+    <h2 class="section-title">Описание профессии</h2>
+    <p class="text-paragraph">
+        Профессия <strong class="highlight-text">C/C++ программиста</strong> является одной из самых востребованных и уважаемых в мире разработки программного обеспечения. Эти языки программирования считаются основополагающими в IT-сфере и широко используются для создания системного программного обеспечения, драйверов, игр, высокопроизводительных приложений и встраиваемых систем.
+    </p>
+    <p class="text-paragraph">
+        <u class="underline-text">C</u> — это язык, с которого началась история современного программирования. Он был разработан в 1972 году Деннисом Ритчи в лабораториях Bell Labs. С тех пор <strong class="highlight-text">C</strong> стал фундаментом для разработки операционных систем, таких как Unix и Linux. Благодаря своей гибкости и скорости, он до сих пор является стандартом для системного программирования.
+    </p>
+    <p class="text-paragraph">
+        <u class="underline-text">C++</u> — это объектно-ориентированное расширение C, созданное Бьёрном Страуструпом в 1980-х годах. Этот язык добавил к <strong class="highlight-text">C</strong> новые возможности, такие как <em class="italic-text">классы, шаблоны и перегрузка операторов</em>, что сделало его мощным инструментом для разработки сложных программных систем. Сегодня <strong class="highlight-text">C++</strong> активно используется в разработке игр, высокопроизводительных приложений и программ для работы с графикой.
+    </p>
+    <img src="{% static 'img/logo_c.png' %}" alt="C Programming" width="300" class="programming-logo">
+    <p style="text-align: center;" class="image-caption"><em>Логотип C</em></p>
 
-        <h2>Почему стоит изучать C и C++?</h2>
-        <p>
-            <strong>C и C++</strong> — это языки, которые позволяют программистам <u>глубже понять, как работает компьютер</u>. Они дают возможность писать эффективный, быстрый код, который может быть выполнен даже на ограниченных аппаратных ресурсах.
-        </p>
-        <ul>
-            <li><strong>Системное программирование</strong>: создание операционных систем, драйверов.</li>
-            <li><strong>Разработка игр</strong>: движки, графика, физика.</li>
-            <li><strong>Встроенные системы</strong>: микроконтроллеры, роботы, IoT-устройства.</li>
-            <li><strong>Финансовые приложения</strong>: высокочастотный трейдинг, аналитика.</li>
-        </ul>
+    <h2 class="section-title">Почему стоит изучать C и C++?</h2>
+    <p class="text-paragraph">
+        <strong class="highlight-text">C и C++</strong> — это языки, которые позволяют программистам <u class="underline-text">глубже понять, как работает компьютер</u>. Они дают возможность писать эффективный, быстрый код, который может быть выполнен даже на ограниченных аппаратных ресурсах.
+    </p>
+    <ul class="advantages-list">
+        <li class="list-item"><strong class="highlight-text">Системное программирование</strong>: создание операционных систем, драйверов.</li>
+        <li class="list-item"><strong class="highlight-text">Разработка игр</strong>: движки, графика, физика.</li>
+        <li class="list-item"><strong class="highlight-text">Встроенные системы</strong>: микроконтроллеры, роботы, IoT-устройства.</li>
+        <li class="list-item"><strong class="highlight-text">Финансовые приложения</strong>: высокочастотный трейдинг, аналитика.</li>
+    </ul>
 
-        <img src="{% static 'img/logo_c++.png' %}" alt="C++ Logo" width="300">
-        <p style="text-align: center;">Логотип C++</p>
+    <img src="{% static 'img/logo_c++.png' %}" alt="C++ Logo" width="300" class="programming-logo">
+    <p style="text-align: center;" class="image-caption">Логотип C++</p>
 
-        <h2>Ресурсы для изучения</h2>
-        <p>Если вы хотите глубже погрузиться в изучение <strong>C/C++</strong>, вот несколько полезных ресурсов:</p>
-        <ul>
-            <li><a href="https://learn.microsoft.com/ru-ru/cpp/">Microsoft Learn - Руководство по C/C++</a></li>
-            <li><a href="https://www.cplusplus.com/">Cplusplus.com - Учебник по C++</a></li>
-            <li><a href="https://www.geeksforgeeks.org/c-programming-language/">GeeksforGeeks - Уроки по C</a></li>
-        </ul>
+    <h2 class="section-title">Ресурсы для изучения</h2>
+    <p class="text-paragraph">Если вы хотите глубже погрузиться в изучение <strong class="highlight-text">C/C++</strong>, вот несколько полезных ресурсов:</p>
+    <ul class="resources-list">
+        <li class="resource-item"><a href="https://learn.microsoft.com/ru-ru/cpp/" class="resource-link">Microsoft Learn - Руководство по C/C++</a></li>
+        <li class="resource-item"><a href="https://www.cplusplus.com/" class="resource-link">Cplusplus.com - Учебник по C++</a></li>
+        <li class="resource-item"><a href="https://www.geeksforgeeks.org/c-programming-language/" class="resource-link">GeeksforGeeks - Уроки по C</a></li>
+    </ul>
 
-        <p>
-            Для того чтобы стать успешным <strong>C/C++ программистом</strong>, необходимо изучить основы языков, понять принципы работы компилятора, освоить алгоритмы и структуры данных. Важно также заниматься практикой и участвовать в разработке реальных проектов.
-        </p>
-    </div>
+    <p class="text-paragraph">
+        Для того чтобы стать успешным <strong class="highlight-text">C/C++ программистом</strong>, необходимо изучить основы языков, понять принципы работы компилятора, освоить алгоритмы и структуры данных. Важно также заниматься практикой и участвовать в разработке реальных проектов.
+    </p>
+</div>
 {% endblock %}

@@ -4,11 +4,6 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <title>{% block title %}{% endblock %}</title>
     </head>
@@ -20,32 +15,32 @@
                 <ul class="nav  nav-pills">
                 {% with request.resolver_match.view_name as view_name %}
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:home' %}active{% endif %}" href="{% url 'pages:home' %}">
+                    <a class="nav-link {% if view_name == 'home:home' %}active{% endif %}" href="{% url 'home:home' %}">
                       Главная страница
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:statistics' %}active{% endif %}" href="{% url 'pages:statistics' %}">
+                    <a class="nav-link {% if view_name == 'statistics_page:statistics_page' %}active{% endif %}" href="{% url 'statistics_page:statistics_page' %}">
                       Общая статистика
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:demand' %}active{% endif %}" href="{% url 'pages:demand' %}">
+                    <a class="nav-link {% if view_name == 'demand:demand' %}active{% endif %}" href="{% url 'demand:demand' %}">
                       Восстребованность
                     </a>
                   </li>
                     <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:geography.py' %}active{% endif %}" href="{% url 'pages:geography' %}">
+                    <a class="nav-link {% if view_name == 'geography:geography' %}active{% endif %}" href="{% url 'geography:geography' %}">
                       География
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:skills' %}active{% endif %}" href="{% url 'pages:skills' %}">
+                    <a class="nav-link {% if view_name == 'skills:skills' %}active{% endif %}" href="{% url 'skills:skills' %}">
                       Навыки
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if view_name == 'pages:last_vacancies' %}active{% endif %}" href="{% url 'pages:last_vacancies' %}">
+                    <a class="nav-link {% if view_name == 'last_vacancies:last_vacancies' %}active{% endif %}" href="{% url 'last_vacancies:last_vacancies' %}">
                       Последние вакансии
                     </a>
                   </li>
