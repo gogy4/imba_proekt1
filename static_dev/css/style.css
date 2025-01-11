@@ -103,3 +103,93 @@
         width: 90%;
     }
 }
+
+/* Основные стили для таблиц */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #0056b3;
+    color: #ffffff;
+    text-align: left;
+    padding: 10px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #eaf4ff;
+}
+
+.no-data-message {
+    color: #d9534f;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Стили для графиков */
+.graph {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовков таблиц и секций */
+.dynamic-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Стили для контейнера таблицы и графика */
+.table-graph-wrapper {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для данных таблиц */
+.year-data, .salary-data, .vacancy-data, .salary-prof-data, .vacancy-prof-data {
+    font-size: 1.1em;
+    color: #555;
+    text-align: left;
+}
+
+/* Уменьшение шрифта для мобильных устройств */
+@media (max-width: 768px) {
+    thead th, tbody td {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+    .graph {
+        width: 100%;
+    }
+    .dynamic-title {
+        font-size: 1.4em;
+    }
+    .no-data-message {
+        font-size: 1em;
+    }
+}

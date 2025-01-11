@@ -7,7 +7,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="сделал скелет для общей статистики, сделал графики для каждой страницы, каждую страницу вынес как отдельное приложение" />
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="сделал скелет для общей статистики, сделал графики для каждой страницы, каждую страницу вынес как отдельное приложение">
+      <change afterPath="$PROJECT_DIR$/analysis/currency_fetch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/vacancies_by_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/demand.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/demand_graphs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/geography.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/geography_graphs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/skills.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/skills_graphs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_dev/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_dev/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/dynamic_count_all_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/dynamic_count_c_cpp_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/dynamic_salary_all_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/dynamic_salary_c_cpp_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/demand.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/demand.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +74,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Django Server.DjangoProject.executor&quot;: &quot;Run&quot;,
+    &quot;Python.currency_fetch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.demand.executor&quot;: &quot;Run&quot;,
     &quot;Python.fetch_currency.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -79,7 +98,53 @@
       <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\DjangoProject\management\commands" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.fetch_currency">
+  <component name="RunManager" selected="Python.currency_fetch">
+    <configuration name="currency_fetch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DjangoProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/currency_fetch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="demand" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DjangoProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/demand" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/demand/demand.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="fetch_currency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DjangoProject" />
       <option name="ENV_FILES" value="" />
@@ -130,6 +195,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.currency_fetch" />
+        <item itemvalue="Python.demand" />
         <item itemvalue="Python.fetch_currency" />
       </list>
     </recent_temporary>
@@ -156,7 +223,9 @@
       <workItem from="1735373886897" duration="10285000" />
       <workItem from="1736600550993" duration="898000" />
       <workItem from="1736603404561" duration="9000" />
-      <workItem from="1736603419541" duration="309000" />
+      <workItem from="1736603419541" duration="761000" />
+      <workItem from="1736604195882" duration="1025000" />
+      <workItem from="1736605239515" duration="3117000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -222,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736603651301</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="сделал скелет для общей статистики, сделал графики для каждой страницы, каждую страницу вынес как отдельное приложение">
+      <option name="closed" value="true" />
+      <created>1736603774257</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736603774257</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
