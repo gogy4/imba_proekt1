@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}<title>Последние вакансии</title>{% endblock %}
+{% block content %}
+    <h2>Последние вакансии по профессии {{ profession }}</h2>
+    <ul class="vacancy-list">
+        {% for vacancy in vacancies %}
+            <li class="vacancy-list-item">
+                <div class="vacancy-header">
+                    <strong>{{ vacancy.title }}</strong> <br>
+                    <em>{{ vacancy.company }}</em> <br>
+                    <span class="region">{{ vacancy.region }}</span> <br>
+                </div>
+                <div class="vacancy-details">
+                    <p class="description"><strong>Описание:</strong> {{ vacancy.description }}</p>
+                    <p class="skills"><strong>Навыки:</strong> {{ vacancy.skills }}</p>
+                    <p class="salary">Зарплата: {{ vacancy.salary_from }} - {{ vacancy.salary_to }} ({{ vacancy.salary_currency }})</p>
+                    <p class="publication-date">Дата публикации: {{ vacancy.publication_date }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

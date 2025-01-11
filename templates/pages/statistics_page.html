@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Общая статистика{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Общая статистика</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Динамика уровня зарплат по годам</h2>
+            <img src="{% static 'statics_page/img/salary_dynamic.png' %}" alt="Динамика зарплат">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Динамика количества вакансий по годам</h2>
+            <img src="{% static 'statics_page/img/vacancy_dynamic.png' %}" alt="Количество вакансий">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Уровень зарплат по городам</h2>
+            <img src="{% static 'statics_page/img/city_salary.png' %}" alt="Уровень зарплат по городам">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Топ-20 навыков</h2>
+                {% if skills.empty %}
+                    <p>Навыков для отображения нет.</p>
+                {% else %}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr><th>Навык</th><th>Количество</th></tr>
+                        </thead>
+                        <tbody>
+                            {% for skill, count in skills.items %}
+                            <tr><td>{{ skill }}</td><td>{{ count }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
