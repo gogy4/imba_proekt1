@@ -45,10 +45,10 @@ def plot_vacancy_counts(years, counts):
     plt.legend(fontsize=10, facecolor='#9b59b6', edgecolor='white')
     plt.grid(True, axis='y', color='gray', linestyle='--', alpha=0.5)
 
-    # Сохранение графика в файл
+    # Сохранение графика в файл с белым фоном
     os.makedirs('static_dev/demand/img', exist_ok=True)  # Создание папки, если ее нет
     plt.tight_layout()
-    plt.savefig('static_dev/demand/img/vacancy_count_by_year.png', bbox_inches='tight')
+    plt.savefig('static_dev/demand/img/vacancy_count_by_year.png', bbox_inches='tight', facecolor='white')
     plt.close()  # Закрываем figure
 
 # Функция для расчета зарплаты с учетом валют
@@ -125,9 +125,9 @@ def plot_avg_salary_by_year(avg_salaries_by_year):
     plt.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.3)
     plt.tight_layout()
 
-    # Сохранение графика
+    # Сохранение графика с белым фоном
     os.makedirs('static_dev/demand/img', exist_ok=True)  # Создание папки, если ее нет
-    plt.savefig('static_dev/demand/img/avg_salary_by_year_plot.png', bbox_inches='tight')
+    plt.savefig('static_dev/demand/img/avg_salary_by_year_plot.png', bbox_inches='tight', facecolor='white')
     plt.close()  # Закрываем figure
 
 # Главная функция

@@ -1,73 +1,158 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 import os
+import numpy as np
 
-def plot_vacancy_distribution(cities, shares):
-    # Устанавливаем стиль ggplot
-    plt.style.use('ggplot')
 
-    # Создание фигуры с заданным размером
-    plt.figure(figsize=(12, 8), facecolor='none')
-    ax = plt.gca()
-    ax.set_facecolor('none')
+# Функция для обработки данных по городам
+def analyze_city_data(vacancy_data_path):
+    # Чтение CSV данных
+    df = pd.read_csv(vacancy_data_path,
+                     encoding='utf-8-sig',
+                     low_memory=False,
+                     usecols=['area_name'])
 
-    # Один фиксированный цвет для всех частей графика
-    single_color = '#3498DB'  # Насыщенный синий
+    # Подсчет вакансий по городам
+    city_vacancy_count = df['area_name'].value_counts()
 
-    # График доли вакансий по городам
-    plt.pie(shares, labels=cities, autopct='%1.1f%%',
-            textprops={'fontsize': 10, 'color': 'black'},  # Цвет текста поменяли на черный для лучшего контраста
-            colors=[single_color] * len(cities))  # Все части графика одного цвета
+    # Расчет доли вакансий по городам
+    total_vacancies = city_vacancy_count.sum()
+    city_share = city_vacancy_count / total_vacancies
 
-    plt.title('Доля вакансий по городам C/C++ программист', fontsize=24, color='black')
+    # Фильтрация городов с более чем 1% вакансий
+    top_cities = city_share[city_share > 0.01]
 
-    # Создание папки, если ее нет
-    if not os.path.exists('static_dev/geography/img'):
-        os.makedirs('static_dev/geography/img')
+    # Сортировка по доле вакансий и выбор топ-10 городов
+    top_10_cities = top_cities.nlargest(10)
 
-    # Сохранение графика в файл
-    plt.tight_layout()
-    plt.savefig('static_dev/geography/img/vacancy_distribution.png')
-    plt.close()
+    # Расчет доли для категории "Другие"
+    other_share = 1 - top_10_cities.sum()
 
-def plot_average_salaries(salary_data):
-    # Сортировка данных для визуализации по убыванию
-    sorted_salaries = salary_data.sort_values(ascending=False)
+    # Добавление категории "Другие"
+    top_10_cities['Другие'] = other_share
 
-    plt.style.use('ggplot')
-    plt.figure(figsize=(12, 8), facecolor='none')
-    ax = plt.gca()
-    ax.set_facecolor('none')
+    return top_10_cities
 
-    colors = plt.get_cmap('viridis')(np.linspace(0, 1, len(sorted_salaries)))
-    plt.barh(sorted_salaries.index, sorted_salaries.values, color=colors)
 
-    # Инвертируем ось Y, чтобы самое большое значение было сверху
-    plt.gca().invert_yaxis()
+# Функция для сохранения данных о городах в HTML файл
+def export_city_share_to_html(city_share_df):
+    # Преобразуем данные в HTML таблицу
+    html_table = city_share_df.to_frame('Доля вакансий Backend-программист').to_html(
+        index=True,
+        border=1,
+        classes='table table-dark',
+        float_format='{:.1%}'.format
+    )
 
-    plt.title('Средняя зарплата по городам C/C++ программист', fontsize=20)
-    plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    plt.xlabel('Средняя зарплата (руб.)')
-    plt.tight_layout()
+    # Путь для сохранения HTML файла
+    html_file_path = 'data/city_shares.html'
 
-    # Сохранение графика в файл
-    plt.savefig('static_dev/geography/img/average_salaries.png')
-    plt.close()
+    # Создание папки, если она не существует
+    os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
 
+    # Сохранение таблицы в HTML файл
+    with open(html_file_path, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
+
+
+# Функция для вычисления зарплаты с учетом курса валют
+def compute_salary(row, currency_data):
+    # Получение курса валюты
+    def fetch_currency_rate():
+        date = row['month']
+        currency = row['salary_currency']
+        if currency in currency_data.columns:
+            currency_row = currency_data.loc[currency_data['date'] == date]
+            return currency_row[currency].values[0] if not currency_row.empty else np.nan
+        return np.nan
+
+    # Обработка пустых значений в зарплатах
+    if pd.isna(row['salary_from']) and pd.isna(row['salary_to']):
+        return np.nan
+
+    # Определяем среднюю зарплату, если только одно значение указано
+    if pd.isna(row['salary_from']):
+        salary = row['salary_to']
+    elif pd.isna(row['salary_to']):
+        salary = row['salary_from']
+    else:
+        # Если указаны оба значения, используем среднее значение
+        salary = (row['salary_from'] + row['salary_to']) / 2
+
+    # Преобразование зарплаты в указанную валюту
+    exchange_rate = fetch_currency_rate()
+    converted_salary = salary * exchange_rate if row['salary_currency'] != 'RUR' else salary
+
+    # Проверка на максимально возможную зарплату
+    return np.nan if converted_salary > 10_000_000 else converted_salary
+
+
+# Функция для обработки данных по зарплатам с учетом валют
+def analyze_salary_data(vacancy_data_path, currency_data_path):
+    # Загрузка данных о курсах валют
+    currency_data = pd.read_csv(currency_data_path)
+
+    # Чтение данных о вакансиях
+    df = pd.read_csv(vacancy_data_path,
+                     encoding='utf-8-sig',
+                     low_memory=False,
+                     usecols=['published_at', 'salary_from', 'salary_to', 'salary_currency', 'area_name'])
+
+    # Обработка даты для извлечения месяца
+    df['published_at'] = pd.to_datetime(df['published_at'], utc=True)
+    df['month'] = df['published_at'].dt.strftime('%Y-%m')
+
+    # Применение вычисления зарплаты с учетом курсов валют
+    df['adjusted_salary'] = df.apply(
+        lambda row: compute_salary(row, currency_data),
+        axis=1
+    )
+
+    # Подсчет общего числа вакансий
+    total_vacancies_count = len(df)
+
+    # Фильтрация по количеству вакансий по городам
+    city_vacancy_counts = df['area_name'].value_counts()
+    relevant_cities = city_vacancy_counts[city_vacancy_counts > total_vacancies_count * 0.01].index
+
+    # Расчет средней зарплаты по городам
+    city_avg_salary = df[df['area_name'].isin(relevant_cities)].groupby('area_name')[
+        'adjusted_salary'].mean().round().sort_values(ascending=False)
+
+    return city_avg_salary.head(10)
+
+
+# Функция для сохранения данных о зарплатах в HTML
+def export_city_salaries_to_html(city_avg_salary_df):
+    # Путь для сохранения HTML файла
+    salary_html_path = 'data/city_salaries.html'
+
+    # Создание папки, если она не существует
+    os.makedirs(os.path.dirname(salary_html_path), exist_ok=True)
+
+    city_avg_salary_df.to_frame().to_html(salary_html_path,
+                                          table_id='salary_table',
+                                          classes='table table-dark')
+
+
+# Основная функция, которая обрабатывает данные и сохраняет результаты
 def main():
-    # Пример данных для демонстрации
-    city_names = ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань', 'Другие']
-    vacancy_shares = [0.4, 0.2, 0.15, 0.1, 0.1, 0.05]
+    # Пути к файлам
+    vacancy_data_path = 'data/vacancies_by_name.csv'
+    currency_data_path = 'data/currency.csv'
 
-    city_list = ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань']
-    salary_values = [120000, 110000, 95000, 90000, 85000]
+    # Получение данных о доле вакансий по городам
+    city_share = analyze_city_data(vacancy_data_path)
 
-    salary_data = pd.Series(salary_values, index=city_list)
+    # Сохранение таблицы о доле вакансий по городам в HTML
+    export_city_share_to_html(city_share)
 
-    # Построение и сохранение графиков
-    plot_vacancy_distribution(city_names, vacancy_shares)
-    plot_average_salaries(salary_data)
+    # Получение данных о средней зарплате по городам
+    city_avg_salary = analyze_salary_data(vacancy_data_path, currency_data_path)
 
+    # Сохранение таблицы о средней зарплате по городам в HTML
+    export_city_salaries_to_html(city_avg_salary)
+
+
+# Запуск основной функции
 if __name__ == '__main__':
     main()
