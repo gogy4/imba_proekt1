@@ -61,7 +61,7 @@ def get_hh_vacancies(profession):
 # View-функция для отображения последних вакансий
 
 def last_vacancies(request):
-    profession = 'C/C++'
+    profession = 'C/C++ программист'
     vacancies = get_hh_vacancies(profession)
     Vacancy.objects.bulk_create([Vacancy(**vacancy_data) for vacancy_data in vacancies])
 
