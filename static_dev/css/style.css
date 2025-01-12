@@ -120,11 +120,12 @@ footer {
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Стиль для параграфов с текстом */
 .text-paragraph {
-    font-size: 16px;
+    font-size: 20px;
     color: #555;
     line-height: 1.6;
     margin-bottom: 15px;
@@ -136,6 +137,8 @@ footer {
 .highlight-text {
     color: #800080;
     font-weight: bold;
+    font-size:20px;
+    text-align: center;
 }
 
 /* Стили для изображений */
@@ -154,16 +157,73 @@ footer {
 }
 
 /* Стили для списка преимуществ */
-.advantages-list {
-    list-style-type: none;
-    padding-left: 0;
+/* Стили для списка advantages-list */
+ul.advantages-list {
+    list-style-type: none; /* Убирает стандартные маркеры списка */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f3e5f5; /* Легкий фиолетовый цвет фона */
+    border: 2px solid #8e24aa; /* Фиолетовая рамка */
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта */
 }
 
-/* Стили для списка ресурсов */
-.resources-list {
-    list-style-type: none;
-    padding-left: 0;
+/* Стили для каждого элемента списка */
+ul.advantages-list .list-item {
+    padding: 10px; /* Внутренние отступы для элементов */
+    border-bottom: 1px solid #8e24aa; /* Линия между элементами списка, фиолетового цвета */
 }
+
+/* Убираем нижнюю границу у последнего элемента */
+ul.advantages-list .list-item:last-child {
+    border-bottom: none;
+}
+
+/* Стили для текста внутри элементов списка */
+ul.advantages-list .list-item strong {
+    color: #6a1b9a; /* Более темный фиолетовый цвет для выделенных элементов */
+}
+
+
+/* Стили для списка ресурсов */
+/* Стили для всего списка */
+ul.resources-list {
+    list-style-type: none; /* Убирает стандартные маркеры списка */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f0f8ff; /* Цвет фона */
+    border: 2px solid #007bff; /* Рамка вокруг списка */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта */
+}
+
+/* Стили для каждого элемента списка */
+ul.resources-list {
+    padding: 10px; /* Внутренние отступы для элементов */
+    border-bottom: 1px solid #007bff; /* Линия между элементами списка */
+}
+
+.resource-item {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+/* Убираем нижнюю границу у последнего элемента */
+ul.resources-list .resource-item:last-child {
+    border-bottom: none;
+}
+
+/* Стили для ссылок внутри списка */
+ul.resources-list .resource-item a {
+    color: #007bff; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+ul.resources-list .resource-item a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
 
 .resource-link {
     font-size: 16px;
@@ -402,4 +462,98 @@ footer {
 /* Добавим небольшие отступы вокруг блоков */
 .table-graph-wrapper {
     margin-top: 30px;
+}
+
+.page-title{
+    text-align: center;
+}
+
+.list-item{
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+/* Стили для страницы вакансий */
+.vacancies-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #6a4c9c; /* Фиолетовый цвет */
+}
+
+/* Стили для списка вакансий */
+.vacancy-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Стили для каждой вакансии */
+.vacancy-list-item {
+    background-color: #f4e6fb; /* Светлый фиолетовый фон */
+    border: 1px solid #d1a7f7; /* Легкая фиолетовая рамка */
+    border-radius: 10px; /* Закругленные углы */
+    margin-bottom: 15px; /* Отступ между вакансиями */
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Стили при наведении на вакансию */
+.vacancy-list-item:hover {
+    transform: translateY(-5px); /* Легкий подъем при наведении */
+    box-shadow: 0 4px 10px rgba(106, 76, 156, 0.3); /* Легкая тень с фиолетовым оттенком */
+}
+
+/* Стили для заголовка вакансии */
+.vacancy-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #6a4c9c; /* Фиолетовый цвет для заголовка */
+}
+
+/* Стили для компании (оставляем прежний цвет) */
+.vacancy-company {
+    font-size: 16px;
+    color: #333; /* Черный/темно-серый цвет */
+}
+
+/* Стили для региона (оставляем прежний цвет) */
+.vacancy-region {
+    font-size: 14px;
+    color: #555; /* Серый цвет */
+}
+
+/* Стили для описания вакансии */
+.vacancy-description, .vacancy-skills, .vacancy-publication-date {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #333; /* Черный/темно-серый цвет */
+}
+
+/* Стили для зарплаты */
+.vacancy-salary {
+    font-weight: bold;
+    color: #6a4c9c; /* Фиолетовый для зарплаты */
+}
+
+/* Стили для текста "Навыки" */
+.vacancy-skills strong {
+    color: #6a4c9c; /* Фиолетовый для важного текста */
+}
+
+/* Стили для даты публикации */
+.vacancy-publication-date strong {
+    color: #6a4c9c; /* Фиолетовый для важного текста */
+}
+
+/* Стили для текста, если вакансий нет */
+.no-vacancies {
+    font-size: 16px;
+    color: #9b7cb4; /* Бледный фиолетовый для текста */
+    text-align: center;
+    margin-top: 20px;
 }
