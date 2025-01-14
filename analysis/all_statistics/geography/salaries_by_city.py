@@ -51,21 +51,58 @@ def process_vacancy_data(vacancy_file, exchange_file):
     return city_salaries.head(10)
 
 
+# Функция для сохранения данных о зарплатах по городам в HTML
 def save_vacancy_to_html(city_salaries):
-    os.makedirs('data', exist_ok=True)
-
+    # Преобразуем данные в DataFrame и задаем заголовок на русском
     city_salaries_df = city_salaries.reset_index()
-    city_salaries_df.columns = ['City', 'Average Salary (rub.)']
+    city_salaries_df.columns = ['Город', 'Средняя зарплата (руб.)']
 
-    html = city_salaries_df.to_html(index=False, border=1, classes='table table-dark', header=True)
+    # Преобразуем данные в HTML таблицу
+    html_table = city_salaries_df.to_html(
+        index=False,
+        border=1,
+        table_id='salary_table',
+        classes='table table-dark'
+    )
 
-    html = html.replace('<table', '<table style="width: 60%; margin-left: auto; margin-right: auto; border-collapse: collapse;"')
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #salary_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #salary_table th, #salary_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #salary_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #salary_table td {
+            color: white;
+        }
+    </style>
+    """
 
-    html = html.replace('<td>', '<td style="text-align: center;">')
-    html = html.replace('<th>', '<th style="text-align: center;">')
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
 
-    with open('data/salary_by_city.html', 'w', encoding='utf-8-sig') as f:
-        f.write(html)
+    # Путь для сохранения HTML файла
+    html_file_path = 'data/salary_by_city.html'
+
+    # Создание папки, если она не существует
+    os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
+
+    # Сохранение таблицы в HTML файл
+    with open(html_file_path, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
+
 
 
 def plot_vacancy_salary_distribution(city_salaries):
@@ -76,9 +113,9 @@ def plot_vacancy_salary_distribution(city_salaries):
     plt.figure(figsize=(12, 8), facecolor='none')
     plt.barh(sorted_salaries.index, sorted_salaries.values, color='#9b59b6')
 
-    plt.title('Average Salary by City', fontsize=20, fontname='Arial', color='black')
-    plt.xlabel('Average Salary (rub.)', fontsize=14, fontname='Arial', color='black')
-    plt.ylabel('Cities', fontsize=14, fontname='Arial', color='black')
+    plt.title('Средняя зарплата по городом', fontsize=20, fontname='Arial', color='black')
+    plt.xlabel('Средняя зарплата (руб.)', fontsize=14, fontname='Arial', color='black')
+    plt.ylabel('Города', fontsize=14, fontname='Arial', color='black')
 
     plt.xticks(color='black')
     plt.yticks(color='black')

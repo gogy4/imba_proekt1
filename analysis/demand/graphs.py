@@ -127,7 +127,7 @@ def plot_avg_salary_by_year(avg_salaries_by_year):
 
     # Сохранение графика с белым фоном
     os.makedirs('data/img', exist_ok=True)  # Создание папки, если ее нет
-    plt.savefig('data/salary_by_year.png', bbox_inches='tight', facecolor='white')
+    plt.savefig('data/img/salary_by_year.png', bbox_inches='tight', facecolor='white')
     plt.close()  # Закрываем figure
 
 # Главная функция

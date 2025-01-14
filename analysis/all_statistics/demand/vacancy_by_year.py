@@ -22,19 +22,56 @@ def process_file_years(file_path):
 def save_to_html(vacancies_by_year):
     os.makedirs('data/', exist_ok=True)
 
+    # Преобразуем данные в DataFrame
     vacancies_by_year_df = vacancies_by_year.reset_index()
     vacancies_by_year_df.columns = ['Год', 'Количество вакансий']
 
-    html = vacancies_by_year_df.to_html(index=False, border=1, classes='table table-dark', header=True)
+    # Преобразуем данные в HTML таблицу
+    html_table = vacancies_by_year_df.to_html(
+        index=False,
+        border=1,
+        table_id='vacancy_by_year_table',
+        classes='table table-dark'
+    )
 
-    html = html.replace('<table',
-                        '<table style="width: 60%; margin-left: auto; margin-right: auto; border-collapse: collapse;"')
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #vacancy_by_year_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #vacancy_by_year_table th, #vacancy_by_year_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #vacancy_by_year_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #vacancy_by_year_table td {
+            color: white;
+        }
+    </style>
+    """
 
-    html = html.replace('<td>', '<td style="text-align: center;">')
-    html = html.replace('<th>', '<th style="text-align: center;">')
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
 
-    with open('data/vacancies_by_year.html', 'w', encoding='utf-8-sig') as f:
-        f.write(html)
+    # Путь для сохранения HTML файла
+    html_file_path = 'data/vacancies_by_year.html'
+
+    # Создание папки, если она не существует
+    os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
+
+    # Сохранение таблицы в HTML файл
+    with open(html_file_path, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
+
 
 
 def create_yearly_plot(years, counts, img_dir='data/img/'):
@@ -57,8 +94,6 @@ def create_yearly_plot(years, counts, img_dir='data/img/'):
     plt.xticks(color='black')
     plt.yticks(color='black')
 
-    # Set legend text color to black
-
     # Set grid lines and color for the y-axis
     plt.grid(True, axis='y', color='gray', linestyle='--', linewidth=0.5, alpha=0.3)
 
@@ -67,12 +102,13 @@ def create_yearly_plot(years, counts, img_dir='data/img/'):
         label.set_color('black')
     for label in plt.gca().get_yticklabels():
         label.set_color('black')
-    for label in plt.gca().get_legend().get_texts():
-        label.set_color('black')
 
     # Ensure all text on the figure is black
     plt.tight_layout()
-    plt.savefig(img_dir, transparent=True)
+
+    # Save the plot
+    plt.savefig(img_dir + 'vacancies_by_year.png', transparent=True)
+
 
 
 def main():

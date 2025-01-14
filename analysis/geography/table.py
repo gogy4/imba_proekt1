@@ -35,13 +35,46 @@ def analyze_city_data(vacancy_data_path):
 
 # Функция для сохранения данных о городах в HTML файл
 def export_city_share_to_html(city_share_df):
+    # Преобразуем данные в DataFrame и задаем заголовок на русском
+    city_share_df = city_share_df.reset_index()
+    city_share_df.columns = ['Город', 'Доля вакансий C/C++ программист']
+
     # Преобразуем данные в HTML таблицу
-    html_table = city_share_df.to_frame('Доля вакансий Backend-программист').to_html(
-        index=True,
+    html_table = city_share_df.to_html(
+        index=False,
         border=1,
+        table_id='city_share_table',
         classes='table table-dark',
         float_format='{:.1%}'.format
     )
+
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #city_share_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #city_share_table th, #city_share_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #city_share_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #city_share_table td {
+            color: white;
+        }
+    </style>
+    """
+
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
 
     # Путь для сохранения HTML файла
     html_file_path = 'data/vacancy_by_city.html'
@@ -52,7 +85,6 @@ def export_city_share_to_html(city_share_df):
     # Сохранение таблицы в HTML файл
     with open(html_file_path, 'w', encoding='utf-8-sig') as file:
         file.write(html_table)
-
 
 # Функция для вычисления зарплаты с учетом курса валют
 def compute_salary(row, currency_data):
@@ -123,16 +155,55 @@ def analyze_salary_data(vacancy_data_path, currency_data_path):
 
 # Функция для сохранения данных о зарплатах в HTML
 def export_city_salaries_to_html(city_avg_salary_df):
+    # Преобразование DataFrame в таблицу с исправлением структуры и переводом заголовков
+    city_avg_salary_df = city_avg_salary_df.reset_index()
+    city_avg_salary_df.columns = ['Город', 'Средняя зарплата (руб.)']
+
+    # Преобразуем данные в HTML таблицу
+    html_table = city_avg_salary_df.to_html(
+        index=False,
+        border=1,
+        table_id='salary_table',
+        classes='table table-dark'
+    )
+
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #salary_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #salary_table th, #salary_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #salary_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #salary_table td {
+            color: white;
+        }
+    </style>
+    """
+
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
+
     # Путь для сохранения HTML файла
     salary_html_path = 'data/salary_by_city.html'
 
     # Создание папки, если она не существует
     os.makedirs(os.path.dirname(salary_html_path), exist_ok=True)
 
-    city_avg_salary_df.to_frame().to_html(salary_html_path,
-                                          table_id='salary_table',
-                                          classes='table table-dark')
-
+    # Сохранение таблицы в HTML файл
+    with open(salary_html_path, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
 
 # Основная функция, которая обрабатывает данные и сохраняет результаты
 def main():

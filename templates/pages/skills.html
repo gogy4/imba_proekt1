@@ -18,11 +18,17 @@
             </form>
         </div>
     </div>
-    <div class="year-block">
-        <h3 class="skills-header">ТОП-20 навыков по годам для {{ prof }}. Наиболее высокочастотные навыки</h3>
-        <div class="table-graph-wrapper">
-            <img class="skills-plot" src="{{ top_skills_plot }}" alt="График" width="1000" height="600">
-            <div class="trend-table mt-3">{{ top_skills_table|safe }}</div>
+
+    <div class="top-skills-row">
+        <h2>Топ навыков для C/C++ программист</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ top_skills_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">
+            </div>
         </div>
     </div>
+
 {% endblock %}

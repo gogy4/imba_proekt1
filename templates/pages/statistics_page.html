@@ -5,41 +5,61 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="mt-4">Общая статистика</h1>
+    <h1 class="page-title mt-4">Общая статистика</h1>
 
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Динамика уровня зарплат по годам</h2>
-            <img src="{{ salary_by_year_plot }}" alt="Динамика зарплат">
-            <div class="trend-table mt-3">{{ salary_by_year_table|safe }}</div>
+    <!-- Динамика уровня зарплат по годам -->
+    <div class="salary-trend-row">
+        <h2>Динамика уровня зарплат по годам</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ salary_by_year_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="salary-by-year-plot" src="{{ salary_by_year_plot }}" alt="Динамика зарплат" onclick="openFullScreen(this)">
+            </div>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h2>Динамика количества вакансий по годам</h2>
-             <img src="{{ vacancies_by_year_plot }}" alt="" class="trend-plot" width="750" height="500">
-            <div class="trend-table mt-3">{{ vacancies_by_year_table|safe }}</div>
+    <!-- Динамика количества вакансий по годам -->
+    <div class="vacancy-trend-row">
+        <h2>Динамика количества вакансий по годам</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ vacancies_by_year_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="vacancies-by-year-plot" src="{{ vacancies_by_year_plot }}" alt="Динамика вакансий" onclick="openFullScreen(this)">
+            </div>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h2>Уровень зарплат по городам</h2>
-
-             <img src="{{ salary_by_city_plot }}" alt="" class="trend-plot" width="750" height="500">
-            <div class="trend-table mt-3">{{ salary_by_city_table|safe }}</div>
+    <!-- Уровень зарплат по городам -->
+    <div class="salary-by-city-row">
+        <h2>Уровень зарплат по городам</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ salary_by_city_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="salary-by-city-plot" src="{{ salary_by_city_plot }}" alt="Зарплаты по городам" onclick="openFullScreen(this)">
+            </div>
         </div>
     </div>
 
-
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h2>Доля вакансий по городам</h2>
-                <img src="{{ vacancy_share_by_city_plot }}" alt="" class="trend-plot" width="750" height="500">
-                <div class="trend-table mt-3">{{ vacancy_share_by_city_table|safe }}</div>
+    <!-- Доля вакансий по городам -->
+    <div class="vacancy-share-by-city-row">
+        <h2>Доля вакансий по городам</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ vacancy_share_by_city_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="vacancy-share-by-city-plot" src="{{ vacancy_share_by_city_plot }}" alt="Доля вакансий по городам" onclick="openFullScreen(this)">
+            </div>
         </div>
     </div>
+
+    <!-- Форма для выбора года -->
     <div class="form-container">
         <form method="get" action="{% url 'statistics_page:statistics_page' %}">
             <div class="form-group">
@@ -52,11 +72,28 @@
             </div>
             <button type="submit" class="form-button">Применить</button>
         </form>
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h2>Топ навыков</h2>
-            <img src="{{ top_skills_chart }}" alt="" class="trend-plot" width="750" height="500">
-        <div class="trend-table mt-3">{{ top_skills_table|safe }}</div>
+    </div>
+
+    <!-- Топ навыков -->
+    <div class="top-skills-row">
+        <h2>Топ навыков</h2>
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ top_skills_table|safe }}
+            </div>
+            <div class="plot">
+                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- Модальное окно для отображения графика на весь экран -->
+<div class="fullscreen-modal" onclick="closeFullScreen()">
+    <div class="modal-content">
+        <button class="close-button" onclick="closeFullScreen()">X</button>
+        <img id="fullscreen-img" src="" alt="График">
+    </div>
+</div>
+
 {% endblock %}

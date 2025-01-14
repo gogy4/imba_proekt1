@@ -7,18 +7,17 @@ def skills(request):
 
     # Если запись не найдена
     if stat is None:
-        return render(request, 'pages/skills.html', {'error': 'No data available'})
+        return render(request, 'pages/statistics_page.html', {'error': 'No data available'})
 
-    year = list(range(2015, 2025))
-    current_year = request.GET.get('year', str(year[-1]))
+    year = list(range(2015, 2025))  # Перечень доступных лет
+    current_year = request.GET.get('year', str(year[-1]))  # Получаем год из запроса, по умолчанию текущий год
 
-    # Получаем график и таблицу для выбранного года
+    # Динамическая загрузка данных для текущего года
     top_skills_plot = getattr(stat, f"top_skills_plot_{current_year}", None)
-    top_skills_table = getattr(stat, f"top_skill_table_{current_year}", None)
+    top_skills_table = getattr(stat, f"top_skills_table_{current_year}", None)
 
     # Проверка на None для top_skills_chart
     top_skills_plot_url = top_skills_plot.url if top_skills_plot else None
-
     context = {
         'top_skills_plot': top_skills_plot_url,
         'top_skills_table': top_skills_table,

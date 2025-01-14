@@ -557,3 +557,255 @@ ul.resources-list .resource-item a:hover {
     text-align: center;
     margin-top: 20px;
 }
+
+.trend-group {
+    display: flex;
+    align-items: center; /* Центрирует элементы по вертикали */
+    gap: 20px;
+    border: 2px solid purple; /* Фиолетовая рамка */
+    background-color: #f5f0f5; /* Задний фон */
+    padding: 20px; /* Отступы внутри контейнера */
+    border-radius: 8px; /* Закругленные углы рамки */
+    margin-bottom: 150px;
+}
+
+.trend-table {
+    flex: 1;
+    overflow-x: auto;
+    margin-left: 10px; /* Уменьшаем отступ слева от таблицы */
+}
+
+.plot {
+    flex: 0 0 75%; /* Увеличиваем ширину графика, чтобы он занимал больше пространства */
+    display: flex;
+    justify-content: flex-start; /* График слева */
+    align-items: center; /* Центрирует график по вертикали */
+}
+
+.plot img {
+    width: 100%;
+    height: auto;
+    max-width: 1200px; /* Увеличиваем максимальную ширину графика */
+}
+/* Модальное окно */
+.fullscreen-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Темный полупрозрачный фон */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Когда модальное окно открыто */
+.fullscreen-modal.open {
+    display: flex; /* Показываем модальное окно */
+    background-color: #f5f0f5; /* Задний фон #f5f0f5 */
+}
+
+.fullscreen-modal img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content {
+    position: relative;
+    text-align: center;
+}
+
+/* Кнопка закрытия модального окна */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Стиль для модального окна */
+.modal {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    z-index: 9999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: auto;
+}
+
+/* Стиль для изображения в модальном окне */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Кнопка закрытия */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Стиль для модального окна */
+.modal {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    z-index: 9999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 240, 245, 0.9); /* Задний фон с полупрозрачным цветом #f5f0f5 */
+    overflow: auto;
+}
+
+/* Стиль для изображения в модальном окне */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Кнопка закрытия */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Модальное окно */
+.fullscreen-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 240, 245, 0.9); /* Полупрозрачный фон */
+    overflow: auto;
+}
+
+/* Контент модального окна */
+.modal-content {
+    position: relative;
+    margin: auto;
+    top: 10%;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Кнопка закрытия */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff; /* Белый текст */
+    font-size: 30px;
+    background-color: #800080; /* Фиолетовый фон */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%; /* Круглая кнопка */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+/* Эффект при наведении на кнопку */
+.close-button:hover {
+    background-color: #9b30b6; /* Светлый фиолетовый при наведении */
+}
+
+/* Изображение в модальном окне */
+#fullscreen-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Модальное окно */
+.fullscreen-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4e6fb; /* Светлый фиолетовый фон */
+    overflow: auto;
+}
+
+/* Контент модального окна */
+.modal-content {
+    position: relative;
+    margin: auto;
+    top: 10%;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Кнопка закрытия */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff; /* Белый текст */
+    font-size: 30px;
+    background-color: #800080; /* Фиолетовый фон */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%; /* Круглая кнопка */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+/* Эффект при наведении на кнопку */
+.close-button:hover {
+    background-color: #9b30b6; /* Светлый фиолетовый при наведении */
+}
+
+/* Изображение в модальном окне */
+#fullscreen-img {
+    width: 100%;
+    height: auto;
+}
+

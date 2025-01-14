@@ -42,19 +42,52 @@ def create_bar_chart(data, title, xlabel, ylabel, filename):
 
 
 def save_to_html(year: int, data: list, filename: str):
-    # Создаем папку, если не существует
+    # Преобразуем данные в DataFrame
+    df = pd.DataFrame(data, columns=['Навык', 'Количество'])
+
+    # Преобразуем данные в HTML таблицу
+    html_table = df.to_html(
+        index=False,
+        border=1,
+        table_id='skill_table',
+        classes='table table-dark'
+    )
+
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #skill_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #skill_table th, #skill_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #skill_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #skill_table td {
+            color: white;
+        }
+    </style>
+    """
+
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
+
+    # Создаем папку, если она не существует
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
-    # Создаем DataFrame и сохраняем в формате HTML
-    df = pd.DataFrame(data, columns=['Навык', 'Количество'])
-    html = df.to_html(index=False, border=1, classes='table table-dark', header=True)
-    html = html.replace('<table',
-                        f'<table style="width: 60%; margin-left: auto; margin-right: auto; border-collapse: collapse;"')
-    html = html.replace('<td>', '<td style="text-align: center; width: 33.33%;">')
-    html = html.replace('<th>', '<th style="text-align: center; width: 33.33%;">')
+    # Сохраняем таблицу в HTML файл
+    with open(filename, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
 
-    with open(filename, 'w', encoding='utf-8-sig') as f:
-        f.write(html)
 
 
 def extract_all_skills(df: pd.DataFrame, year=None) -> list:

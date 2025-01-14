@@ -27,22 +27,55 @@ def calculate_area_shares(file_path):
 
 
 def save_area_shares_to_html(shares_df, output_folder):
-    os.makedirs(output_folder, exist_ok=True)
-
+    # Преобразуем данные в DataFrame и задаем заголовок на русском
     shares_df = shares_df.reset_index()
     shares_df.columns = ['Город', 'Доля вакансий']
 
-    html_content = shares_df.to_html(
-        index=False, border=1, classes='dataframe table table-dark', float_format='{:.1%}'.format)
+    # Преобразуем данные в HTML таблицу
+    html_table = shares_df.to_html(
+        index=False,
+        border=1,
+        table_id='salary_table',
+        classes='table table-dark'
+    )
 
-    html_content = html_content.replace('<table', '<table style="width: 60%; margin-left: auto; margin-right: auto; border-collapse: collapse;"')
-    html_content = html_content.replace('<td>', '<td style="text-align: center;">')
-    html_content = html_content.replace('<th>', '<th style="text-align: center;">')
+    # Добавляем CSS для кастомного дизайна
+    style = """
+    <style>
+        #salary_table {
+            background-color: #7766cf; /* skypurple */
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #salary_table th, #salary_table td {
+            text-align: center;
+            border: 1px solid #594f99;
+            padding: 10px;
+        }
+        #salary_table th {
+            background-color: #594f99;
+            color: white;
+        }
+        #salary_table td {
+            color: white;
+        }
+    </style>
+    """
 
-    html_path = os.path.join(output_folder, 'vacancy_by_city.html')
+    # Добавляем CSS перед таблицей
+    html_table = style + html_table
 
-    with open(html_path, 'w', encoding='utf-8-sig') as file:
-        file.write(html_content)
+    # Путь для сохранения HTML файла
+    html_file_path = os.path.join(output_folder, 'vacancy_by_city.html')
+
+    # Создание папки, если она не существует
+    os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
+
+    # Сохранение таблицы в HTML файл
+    with open(html_file_path, 'w', encoding='utf-8-sig') as file:
+        file.write(html_table)
 
 
 def create_area_shares_bar_chart(areas, shares, output_folder):
