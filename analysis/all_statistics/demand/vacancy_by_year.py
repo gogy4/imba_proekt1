@@ -58,8 +58,8 @@ def create_yearly_plot(years, counts, img_dir='data/img/'):
     plt.yticks(color='black')
 
     # Set legend text color to black
-    plt.legend(['Количество вакансий'], fontsize=10, facecolor='none', edgecolor='white', loc='upper right',
-               frameon=False, labelcolor='black', textcolor='black')
+    plt.legend(['Количество вакансий'], fontsize=10, facecolor='none', edgecolor='black', loc='upper right',
+               frameon=False, labelcolor='black')
 
     # Set grid lines and color for the y-axis
     plt.grid(True, axis='y', color='gray', linestyle='--', linewidth=0.5, alpha=0.3)
@@ -74,7 +74,7 @@ def create_yearly_plot(years, counts, img_dir='data/img/'):
 
     # Ensure all text on the figure is black
     plt.tight_layout()
-    img_path = os.path.join(img_dir, 'vacancies_by_year_vertical.png')
+    img_path = os.path.join(img_dir, 'vacancies_by_year.png')
     plt.savefig(img_path, transparent=True)
 
 

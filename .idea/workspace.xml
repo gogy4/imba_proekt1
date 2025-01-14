@@ -7,15 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="исправил скрипты с графиками">
-      <change afterPath="$PROJECT_DIR$/analysis/all_statistics/demand/salary_by_year.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/all_statistics/demand/vacancy_by_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/skills/graphs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/skills/table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="добавил скрипты для общей статистики, исправил скрипты для скиллов">
+      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/demand/vacancy_by_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/demand/vacancy_by_year.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +278,7 @@
       <workItem from="1736670966674" duration="13383000" />
       <workItem from="1736794353463" duration="2863000" />
       <workItem from="1736836150361" duration="130000" />
-      <workItem from="1736836308831" duration="1611000" />
+      <workItem from="1736836308831" duration="2009000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -415,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736686423725</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="добавил скрипты для общей статистики, исправил скрипты для скиллов">
+      <option name="closed" value="true" />
+      <created>1736838316610</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1736838316610</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +449,8 @@
     <MESSAGE value="добавил базовую систему администирования" />
     <MESSAGE value="добавил больше стилей css" />
     <MESSAGE value="исправил скрипты с графиками" />
-    <option name="LAST_COMMIT_MESSAGE" value="исправил скрипты с графиками" />
+    <MESSAGE value="добавил скрипты для общей статистики, исправил скрипты для скиллов" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил скрипты для общей статистики, исправил скрипты для скиллов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -466,7 +468,7 @@
     <SUITE FILE_PATH="coverage/manage_py$skills_prof.coverage" NAME="skills_prof Coverage Results" MODIFIED="1736794860454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/skills" />
     <SUITE FILE_PATH="coverage/manage_py$vacancies_by_year.coverage" NAME="vacancies_by_year Coverage Results" MODIFIED="1736796840002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
     <SUITE FILE_PATH="coverage/manage_py$demand__1_.coverage" NAME="demand (1) Coverage Results" MODIFIED="1736795241927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics" />
-    <SUITE FILE_PATH="coverage/manage_py$vacancy_by_year.coverage" NAME="vacancy_by_year Coverage Results" MODIFIED="1736837837722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
+    <SUITE FILE_PATH="coverage/manage_py$vacancy_by_year.coverage" NAME="vacancy_by_year Coverage Results" MODIFIED="1736838333711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
     <SUITE FILE_PATH="coverage/manage_py$salary_by_year.coverage" NAME="salary_by_year Coverage Results" MODIFIED="1736837713894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
   </component>
 </project>
