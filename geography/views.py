@@ -1,7 +1,6 @@
 from .models import AreaSalaryAll, AreaCountAll, AreaSalaryProf, AreaCountProf, Geography
 from django.shortcuts import render
 
-
 def geography(request):
     # Получение данных из моделей
     area_salary_all = AreaSalaryAll.objects.values('area_name', 'average_salary')
@@ -14,9 +13,9 @@ def geography(request):
 
     # Если запись не найдена
     if stat is None:
-        return render(request, 'pages/geography.html', {'error': 'No data available'})
+        return render(request, 'pages/geography.html', {'error': 'Нет данных'})
 
-    # Формируем контекст
+    # Формируем контекст для рендеринга шаблона
     context = {
         'salary_by_city_plot': stat.salary_by_city_plot.url if stat.salary_by_city_plot else None,
         'salary_by_city_table': stat.salary_by_city_table if stat.salary_by_city_table else None,
@@ -29,4 +28,5 @@ def geography(request):
         'prof': 'C/C++ программист',
     }
 
+    # Рендерим страницу с данными
     return render(request, 'pages/geography.html', context)

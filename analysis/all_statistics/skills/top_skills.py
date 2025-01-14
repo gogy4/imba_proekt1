@@ -89,7 +89,6 @@ def save_to_html(year: int, data: list, filename: str):
         file.write(html_table)
 
 
-
 def extract_all_skills(df: pd.DataFrame, year=None) -> list:
     # Фильтруем данные по году, если необходимо
     if year is not None:

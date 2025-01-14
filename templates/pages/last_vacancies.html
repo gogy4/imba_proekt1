@@ -1,42 +1,42 @@
-{% extends "base.html" %}
+{% extends "base.html" %}  <!-- Расширяет основной шаблон base.html, добавляя содержимое в блоки title и content -->
 
 {% block title %}
-    Последние вакансии по профессии {{ profession }}
+    Последние вакансии по профессии {{ profession }}  <!-- Устанавливает заголовок страницы, где отображается название профессии -->
 {% endblock %}
 
 {% block content %}
-    <h2 class="vacancies-title">Последние вакансии по профессии {{ profession }}</h2>
+    <h2 class="vacancies-title">Последние вакансии по профессии {{ profession }}</h2>  <!-- Заголовок страницы, который выводит последние вакансии для указанной профессии -->
 
-    {% if vacancies %}
-        <ul class="vacancy-list">
-            {% for vacancy in vacancies %}
-                <li class="vacancy-list-item">
-                    <div class="vacancy-header">
-                        <strong class="vacancy-title">{{ vacancy.title }}</strong> <br>
-                        <em class="vacancy-company">{{ vacancy.company }}</em> <br>
-                        <span class="vacancy-region">{{ vacancy.region }}</span> <br>
+    {% if vacancies %}  <!-- Проверка, есть ли вакансии в списке vacancies -->
+        <ul class="vacancy-list">  <!-- Если вакансии есть, выводим их в виде списка -->
+            {% for vacancy in vacancies %}  <!-- Перебираем все вакансии в списке vacancies -->
+                <li class="vacancy-list-item">  <!-- Для каждой вакансии создаём элемент списка -->
+                    <div class="vacancy-header">  <!-- Заголовок вакансии с основными данными -->
+                        <strong class="vacancy-title">{{ vacancy.title }}</strong> <br>  <!-- Название вакансии -->
+                        <em class="vacancy-company">{{ vacancy.company }}</em> <br>  <!-- Название компании, которая разместила вакансию -->
+                        <span class="vacancy-region">{{ vacancy.region }}</span> <br>  <!-- Регион, в котором открыта вакансия -->
                     </div>
-                    <div class="vacancy-details">
-                        <p class="vacancy-description"><strong>Описание:</strong> {{ vacancy.description }}</p>
-                        <p class="vacancy-skills"><strong>Навыки:</strong> {{ vacancy.skills }}</p>
+                    <div class="vacancy-details">  <!-- Блок с подробной информацией о вакансии -->
+                        <p class="vacancy-description"><strong>Описание:</strong> {{ vacancy.description }}</p>  <!-- Описание вакансии -->
+                        <p class="vacancy-skills"><strong>Навыки:</strong> {{ vacancy.skills }}</p>  <!-- Требуемые навыки для этой вакансии -->
                         <p class="vacancy-salary">
                             <strong>Зарплата:</strong>
-                            {% if vacancy.salary_from %}
-                                от {{ vacancy.salary_from }}
+                            {% if vacancy.salary_from %}  <!-- Если указана минимальная зарплата -->
+                                от {{ vacancy.salary_from }}  <!-- Выводим минимальную зарплату -->
                             {% endif %}
-                            {% if vacancy.salary_to %}
-                                до {{ vacancy.salary_to }}
+                            {% if vacancy.salary_to %}  <!-- Если указана максимальная зарплата -->
+                                до {{ vacancy.salary_to }}  <!-- Выводим максимальную зарплату -->
                             {% endif %}
-                            {% if vacancy.salary_currency %}
-                                ({{ vacancy.salary_currency }})
+                            {% if vacancy.salary_currency %}  <!-- Если указана валюта зарплаты -->
+                                ({{ vacancy.salary_currency }})  <!-- Выводим валюту зарплаты -->
                             {% endif %}
                         </p>
-                        <p class="vacancy-publication-date"><strong>Дата публикации:</strong> {{ vacancy.publication_date }}</p>
+                        <p class="vacancy-publication-date"><strong>Дата публикации:</strong> {{ vacancy.publication_date }}</p>  <!-- Дата публикации вакансии -->
                     </div>
                 </li>
             {% endfor %}
         </ul>
-    {% else %}
-        <p class="no-vacancies">На данный момент вакансии не найдены.</p>
+    {% else %}  <!-- Если вакансий нет -->
+        <p class="no-vacancies">На данный момент вакансии не найдены.</p>  <!-- Сообщение о том, что вакансии не найдены -->
     {% endif %}
 {% endblock %}

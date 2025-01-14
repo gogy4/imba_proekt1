@@ -1,18 +1,24 @@
 from django.db import models
 
+# Модель для статистической страницы
 class StatisticsPage(models.Model):
+    # График и таблица зарплат по годам (Общая)
     salary_by_year_plot = models.ImageField(blank=True, null=True, verbose_name='График зарплат по годам (Общая)')
     salary_by_year_table = models.TextField(blank=True, null=True, verbose_name='Таблица зарплат по годам (Общая)')
 
+    # График и таблица количества вакансий по годам (Общая)
     vacancies_by_year_plot = models.ImageField(blank=True, null=True, verbose_name='График количества вакансий по годам (Общая)')
     vacancies_by_year_table = models.TextField(blank=True, null=True, verbose_name='Таблица количества вакансий по годам (Общая)')
 
+    # График и таблица зарплат по городам (Общая)
     salary_by_city_plot = models.ImageField(blank=True, null=True, verbose_name='График зарплат по городам (Общая)')
     salary_by_city_table = models.TextField(blank=True, null=True, verbose_name='Таблица зарплат по городам (Общая)')
 
+    # График и таблица долей вакансий по городам (Общая)
     vacancy_share_by_city_plot = models.ImageField(blank=True, null=True, verbose_name='График долей вакансий по городам (Общая)')
     vacancy_share_by_city_table = models.TextField(blank=True, null=True, verbose_name='Таблица доли вакансий по городам (Общая)')
 
+    # Графики и таблицы топ-20 навыков по годам (Общая)
     top_skills_plot_2015 = models.ImageField(blank=True, null=True, verbose_name='График топ-20 навыков 2015 (Общая)')
     top_skills_table_2015 = models.TextField(blank=True, null=True, verbose_name='Таблица топ-20 навыков 2015 (Общая)')
 

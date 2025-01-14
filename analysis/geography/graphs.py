@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-
+# Функция для вычисления зарплаты с учетом курса валют
 def compute_salary(row, exchange_rate_data):
-    # Получение курса валюты
+    # Вспомогательная функция для получения курса валюты на конкретный месяц
     def fetch_exchange_rate():
         date = row['month']
         currency = row['salary_currency']
@@ -14,26 +14,27 @@ def compute_salary(row, exchange_rate_data):
             return rate_row[currency].values[0] if not rate_row.empty else np.nan
         return np.nan
 
-    # Обработка зарплат с учетом null значений
+    # Обработка случаев, когда значения зарплаты отсутствуют
     if pd.isna(row['salary_from']) and pd.isna(row['salary_to']):
         return np.nan
 
+    # Если одно из значений отсутствует, берем только другое
     if pd.isna(row['salary_from']):
         salary = row['salary_to']
     elif pd.isna(row['salary_to']):
         salary = row['salary_from']
     else:
-        # Если оба значения есть, берем среднее
+        # Если оба значения присутствуют, рассчитываем среднее
         salary = (row['salary_from'] + row['salary_to']) / 2
 
-    # Конвертация валюты
+    # Преобразование зарплаты с учетом валюты
     exchange_rate = fetch_exchange_rate()
     converted_salary = salary * exchange_rate if row['salary_currency'] != 'RUR' else salary
 
-    # Проверка на максимальную зарплату
+    # Проверка, чтобы зарплата не превышала 10 миллионов
     return np.nan if converted_salary > 10_000_000 else converted_salary
 
-
+# Функция для анализа вакансий и зарплат
 def analyze_vacancies_and_salaries(vacancies_file, currency_file):
     # Загрузка данных о валютных курсах
     exchange_data = pd.read_csv(currency_file)
@@ -44,11 +45,11 @@ def analyze_vacancies_and_salaries(vacancies_file, currency_file):
                                low_memory=False,
                                usecols=['published_at', 'salary_from', 'salary_to', 'salary_currency', 'area_name'])
 
-    # Обработка даты
+    # Преобразование даты в формат datetime
     vacancies_df['published_at'] = pd.to_datetime(vacancies_df['published_at'], utc=True)
     vacancies_df['month'] = vacancies_df['published_at'].dt.strftime('%Y-%m')
 
-    # Применяем расчет зарплаты с передачей курсов валют
+    # Применяем функцию для расчета зарплаты с учетом валют
     vacancies_df['adjusted_salary'] = vacancies_df.apply(
         lambda row: compute_salary(row, exchange_data),
         axis=1
@@ -57,7 +58,7 @@ def analyze_vacancies_and_salaries(vacancies_file, currency_file):
     # Расчет общего числа вакансий
     total_vacancies = len(vacancies_df)
 
-    # Фильтрация по городам с более чем 1% вакансий
+    # Фильтрация городов с более чем 1% вакансий
     city_vacancies = vacancies_df['area_name'].value_counts()
     significant_cities = city_vacancies[city_vacancies > total_vacancies * 0.01].index
 
@@ -76,7 +77,7 @@ def analyze_vacancies_and_salaries(vacancies_file, currency_file):
     # Сортировка по доле вакансий и выбор топ-10
     top_10_city_shares = significant_city_shares.nlargest(10)
 
-    # Расчет доли "Другие"
+    # Расчет доли "Другие" города
     other_share = 1 - top_10_city_shares.sum()
 
     # Добавление категории "Другие"
@@ -84,14 +85,14 @@ def analyze_vacancies_and_salaries(vacancies_file, currency_file):
 
     return city_avg_salaries.head(10), top_10_city_shares
 
-
+# Функция для построения графика средней зарплаты по городам
 def plot_average_salaries_by_city(city_avg_salaries):
-    # Сортировка данных для визуализации по убыванию
+    # Сортируем данные для отображения по убыванию
     sorted_salaries = city_avg_salaries.sort_values(ascending=False)
 
-    plt.figure(figsize=(12, 8), facecolor='white')  # Белый фон для графика
+    plt.figure(figsize=(12, 8))  # Устанавливаем размер графика
     ax = plt.gca()
-    ax.set_facecolor('white')  # Белый фон для осей
+    ax.set_facecolor('none')  # Прозрачный фон для осей
 
     # Новый набор цветов с фиолетовыми и синими оттенками
     colors = [
@@ -112,31 +113,33 @@ def plot_average_salaries_by_city(city_avg_salaries):
         '#0000CD'   # Темно-синий
     ]
 
+    # Строим горизонтальный столбчатый график
     plt.barh(sorted_salaries.index, sorted_salaries.values, color=colors[:len(sorted_salaries)])
 
     # Инвертируем ось Y, чтобы самое большое значение было сверху
     plt.gca().invert_yaxis()
 
-    plt.title('Средняя зарплата по городам для C/C++ программистов', fontsize=20, color='#9b59b6')  # Фиолетовый цвет для заголовка
+    plt.title('Средняя зарплата по городам для C/C++ программистов', fontsize=20, color='black')  # Заголовок
     plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    plt.xlabel('Средняя зарплата (руб.)', fontsize=14)
+    plt.xlabel('Средняя зарплата (руб.)', fontsize=14, color='black')  # Подпись оси X
+    plt.ylabel('', fontsize=14, color='black')  # Подпись оси Y
 
     # Сохранение графика в папку static_dev/geography/img
     output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    plt.tight_layout()
+    plt.tight_layout()  # Подгоняем график по размеру
     output_path = os.path.join(output_dir, 'salary_by_city.png')
-    plt.savefig(output_path)
+    plt.savefig(output_path, transparent=True)  # Сохраняем график с прозрачным фоном
     plt.close()
 
-
+# Функция для построения графика доли вакансий по городам
 def plot_vacancy_shares_by_city(top_10_city_shares):
-    # Устанавливаем стиль белого фона
-    plt.figure(figsize=(12, 8), facecolor='white')  # Белый фон
+    # Устанавливаем стиль графика с прозрачным фоном
+    plt.figure(figsize=(12, 8))
 
-    # Новый набор цветов с фиолетовыми и синими оттенками
+    # Цвета для графика
     colors = [
         '#6A0DAD',  # Ярко-фиолетовый
         '#9B4F96',  # Лаванда
@@ -155,36 +158,36 @@ def plot_vacancy_shares_by_city(top_10_city_shares):
         '#0000CD'   # Темно-синий
     ]
 
-    # График доли вакансий по городам
+    # Строим круговую диаграмму доли вакансий по городам
     plt.pie(top_10_city_shares, labels=top_10_city_shares.index, autopct='%1.1f%%',
-            textprops={'fontsize': 10, 'color': 'white'},  # Изменен цвет шрифта процента на белый
+            textprops={'fontsize': 10, 'color': 'black'},  # Черный цвет шрифта для процентов
             colors=colors[:len(top_10_city_shares)])
 
-    plt.title('Доля вакансий по городам для C/C++ программистов', fontsize=24, color='#9b59b6')  # Фиолетовый цвет для заголовка
+    plt.title('Доля вакансий по городам для C/C++ программистов', fontsize=24, color='black')  # Заголовок
 
     # Сохранение графика в папку static_dev/geography/img
     output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    plt.tight_layout()
+    plt.tight_layout()  # Подгоняем график по размеру
     output_path = os.path.join(output_dir, 'vacancy_by_city.png')
-    plt.savefig(output_path)
+    plt.savefig(output_path, transparent=True)  # Сохраняем с прозрачным фоном
     plt.close()
 
-
+# Главная функция для выполнения анализа и построения графиков
 def main():
-    # Пути к файлам
+    # Пути к данным
     vacancies_file = '../../data/vacancies_by_name.csv'
     currency_file = '../../data/currency.csv'
 
-    # Получение результатов
+    # Получение результатов анализа
     city_avg_salaries, top_10_city_shares = analyze_vacancies_and_salaries(vacancies_file, currency_file)
 
     # Построение графиков
     plot_average_salaries_by_city(city_avg_salaries)
     plot_vacancy_shares_by_city(top_10_city_shares)
 
-
+# Запуск основного кода
 if __name__ == '__main__':
     main()

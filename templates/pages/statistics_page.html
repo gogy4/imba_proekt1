@@ -1,99 +1,90 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}  <!-- Расширяет основной шаблон base.html, добавляя содержимое в блоки title и content -->
+{% load static %}  <!-- Загружает статические файлы для использования в шаблоне (например, изображения, CSS) -->
 
-{% block title %}Общая статистика{% endblock %}
+{% block title %}Общая статистика{% endblock %}  <!-- Устанавливает заголовок страницы "Общая статистика" -->
 
 {% block content %}
-<div class="container">
-    <h1 class="page-title mt-4">Общая статистика</h1>
+    <h1 class="page-title mt-4">Общая статистика</h1>  <!-- Заголовок страницы с основной темой: общая статистика -->
+
+    <div class="form-container-wrapper">
+        <div class="form-container">
+            <form id="skills-form" method="get" action="{% url 'statistics_page:statistics_page' %}">  <!-- Форма для выбора года для статистики -->
+                <div class="form-group">
+                    <div class="years-buttons-container">  <!-- Контейнер с кнопками для выбора года -->
+                        {% for year in unique_years %}  <!-- Перебирает все уникальные годы из списка unique_years -->
+                            <button type="submit" name="year" value="{{ year }}" class="year-button {% if year == selected_year %}selected{% endif %}">
+                                {{ year }}  <!-- Кнопки для каждого года. Если год выбран, ему добавляется класс 'selected' -->
+                            </button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Топ навыков -->
+    <div class="top-skills-row">
+        <h2 class="section-title">Топ навыков</h2>  <!-- Заголовок для раздела "Топ навыков" -->
+        <div class="trend-group d-flex">
+            <div class="trend-table">
+                {{ top_skills_table|safe }}  <!-- Выводит таблицу топовых навыков с помощью фильтра 'safe', чтобы отображать HTML-код -->
+            </div>
+            <div class="plot">
+                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">  <!-- Изображение графика топовых навыков с возможностью открыть в полноэкранном режиме -->
+            </div>
+        </div>
+    </div>
 
     <!-- Динамика уровня зарплат по годам -->
     <div class="salary-trend-row">
-        <h2>Динамика уровня зарплат по годам</h2>
+        <h2 class="section-title">Динамика уровня зарплат по годам</h2>  <!-- Заголовок для раздела о динамике зарплат -->
         <div class="trend-group d-flex">
             <div class="trend-table">
-                {{ salary_by_year_table|safe }}
+                {{ salary_by_year_table|safe }}  <!-- Выводит таблицу с динамикой зарплат по годам -->
             </div>
             <div class="plot">
-                <img class="salary-by-year-plot" src="{{ salary_by_year_plot }}" alt="Динамика зарплат" onclick="openFullScreen(this)">
+                <img class="salary-by-year-plot" src="{{ salary_by_year_plot }}" alt="Динамика зарплат" onclick="openFullScreen(this)">  <!-- График динамики зарплат по годам с возможностью полноэкранного просмотра -->
             </div>
         </div>
     </div>
 
     <!-- Динамика количества вакансий по годам -->
     <div class="vacancy-trend-row">
-        <h2>Динамика количества вакансий по годам</h2>
+        <h2 class="section-title">Динамика количества вакансий по годам</h2>  <!-- Заголовок для раздела о динамике вакансий -->
         <div class="trend-group d-flex">
             <div class="trend-table">
-                {{ vacancies_by_year_table|safe }}
+                {{ vacancies_by_year_table|safe }}  <!-- Таблица с динамикой количества вакансий по годам -->
             </div>
             <div class="plot">
-                <img class="vacancies-by-year-plot" src="{{ vacancies_by_year_plot }}" alt="Динамика вакансий" onclick="openFullScreen(this)">
+                <img class="vacancies-by-year-plot" src="{{ vacancies_by_year_plot }}" alt="Динамика вакансий" onclick="openFullScreen(this)">  <!-- График динамики вакансий по годам с возможностью полноэкранного просмотра -->
             </div>
         </div>
     </div>
 
     <!-- Уровень зарплат по городам -->
     <div class="salary-by-city-row">
-        <h2>Уровень зарплат по городам</h2>
+        <h2 class="section-title">Уровень зарплат по городам</h2>  <!-- Заголовок для раздела с уровнем зарплат по городам -->
         <div class="trend-group d-flex">
             <div class="trend-table">
-                {{ salary_by_city_table|safe }}
+                {{ salary_by_city_table|safe }}  <!-- Таблица с уровнями зарплат по городам -->
             </div>
             <div class="plot">
-                <img class="salary-by-city-plot" src="{{ salary_by_city_plot }}" alt="Зарплаты по городам" onclick="openFullScreen(this)">
+                <img class="salary-by-city-plot" src="{{ salary_by_city_plot }}" alt="Зарплаты по городам" onclick="openFullScreen(this)">  <!-- График зарплат по городам с возможностью полноэкранного просмотра -->
             </div>
         </div>
     </div>
 
     <!-- Доля вакансий по городам -->
     <div class="vacancy-share-by-city-row">
-        <h2>Доля вакансий по городам</h2>
+        <h2 class="section-title">Доля вакансий по городам</h2>  <!-- Заголовок для раздела, показывающего долю вакансий по городам -->
         <div class="trend-group d-flex">
             <div class="trend-table">
-                {{ vacancy_share_by_city_table|safe }}
+                {{ vacancy_share_by_city_table|safe }}  <!-- Таблица с данными о доле вакансий по городам -->
             </div>
             <div class="plot">
-                <img class="vacancy-share-by-city-plot" src="{{ vacancy_share_by_city_plot }}" alt="Доля вакансий по городам" onclick="openFullScreen(this)">
+                <img class="vacancy-share-by-city-plot" src="{{ vacancy_share_by_city_plot }}" alt="Доля вакансий по городам" onclick="openFullScreen(this)">  <!-- График доли вакансий по городам с возможностью полноэкранного просмотра -->
             </div>
         </div>
     </div>
-
-    <!-- Форма для выбора года -->
-    <div class="form-container">
-        <form method="get" action="{% url 'statistics_page:statistics_page' %}">
-            <div class="form-group">
-                <label for="year" class="form-label">Выберите год:</label>
-                <select name="year" id="year" class="form-select">
-                    {% for year in unique_years %}
-                        <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <button type="submit" class="form-button">Применить</button>
-        </form>
-    </div>
-
-    <!-- Топ навыков -->
-    <div class="top-skills-row">
-        <h2>Топ навыков</h2>
-        <div class="trend-group d-flex">
-            <div class="trend-table">
-                {{ top_skills_table|safe }}
-            </div>
-            <div class="plot">
-                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Модальное окно для отображения графика на весь экран -->
-<div class="fullscreen-modal" onclick="closeFullScreen()">
-    <div class="modal-content">
-        <button class="close-button" onclick="closeFullScreen()">X</button>
-        <img id="fullscreen-img" src="" alt="График">
-    </div>
-</div>
 
 {% endblock %}

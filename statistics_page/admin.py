@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import StatisticsPage
 
+# Класс для настройки отображения модели в админке
 class StatisticsPageAdmin(admin.ModelAdmin):
+    # Поля, которые будут отображаться в списке объектов на странице админки
     list_display = [
         'salary_by_year_plot', 'salary_by_year_table',
         'vacancies_by_year_plot', 'vacancies_by_year_table',
@@ -18,6 +20,8 @@ class StatisticsPageAdmin(admin.ModelAdmin):
         'top_skills_plot_2023', 'top_skills_table_2023',
         'top_skills_plot_2024', 'top_skills_table_2024',
     ]
+
+    # Поля, по которым можно будет искать данные в админке
     search_fields = [
         'salary_by_year_plot', 'salary_by_year_table',
         'vacancies_by_year_plot', 'vacancies_by_year_table',
@@ -35,4 +39,5 @@ class StatisticsPageAdmin(admin.ModelAdmin):
         'top_skills_plot_2024', 'top_skills_table_2024',
     ]
 
+# Регистрируем модель StatisticsPage в админке с настройками из StatisticsPageAdmin
 admin.site.register(StatisticsPage, StatisticsPageAdmin)

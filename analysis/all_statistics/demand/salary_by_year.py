@@ -7,22 +7,31 @@ import os
 
 
 def calculate_salary(row, exchange_csv):
+    # Функция для получения курса обмена
     def get_exchange_rate():
         rate_row = exchange_csv[exchange_csv['date'] == row['month']]
         return rate_row[row['salary_currency']].values[0] if not rate_row.empty else np.nan
 
+    # Если обе зарплаты пустые, возвращаем NaN
     if pd.isna(row['salary_from']) and pd.isna(row['salary_to']):
         return np.nan
+
+    # Если одна из зарплат пустая, то берем другую, если обе заданы, то вычисляем среднее значение
     salary = row['salary_from'] if pd.isna(row['salary_to']) else row['salary_to'] if pd.isna(row['salary_from']) else (
-                                                                                                                                   row[
-                                                                                                                                       'salary_from'] +
-                                                                                                                                   row[
-                                                                                                                                       'salary_to']) / 2
+                                                                                       row[
+                                                                                           'salary_from'] +
+                                                                                       row[
+                                                                                           'salary_to']) / 2
+
+    # Преобразуем зарплату в рубли, если валюта не RUR, используем курс обмена
     converted_salary = salary * get_exchange_rate() if row['salary_currency'] != 'RUR' else salary
+
+    # Если зарплата слишком высокая, возвращаем NaN
     return np.nan if converted_salary > 10_000_000 else converted_salary
 
 
 def process_data_chunk(data_chunk):
+    # Обрабатываем кусок данных, применяя функцию расчета зарплаты
     chunk, exchange_csv = data_chunk
     chunk['published_at'] = pd.to_datetime(chunk['published_at'], utc=True)
     chunk['year'], chunk['month'] = chunk['published_at'].dt.year, chunk['published_at'].dt.strftime('%Y-%m')
@@ -31,15 +40,24 @@ def process_data_chunk(data_chunk):
 
 
 def process_salary_data(file_path, exchange_file_path):
+    # Загружаем данные из файлов и обрабатываем их
     exchange_csv = pd.read_csv(exchange_file_path)
+
+    # Чтение данных из файла по частям (по 500,000 строк за раз)
     reader = pd.read_csv(file_path, encoding='utf-8-sig', low_memory=False,
                          usecols=['published_at', 'salary_from', 'salary_to', 'salary_currency'], chunksize=500_000)
+
+    # Создаем список кортежей с данными и таблицей курсов обмена
     data_chunks_with_exchange = [(chunk, exchange_csv) for chunk in reader]
 
+    # Используем пул процессов для обработки данных параллельно
     with ProcessPoolExecutor() as executor:
         processed_chunks = list(executor.map(process_data_chunk, data_chunks_with_exchange))
 
+    # Объединяем обработанные части данных в один DataFrame
     df = pd.concat(processed_chunks, ignore_index=True)
+
+    # Группируем данные по годам и вычисляем среднюю зарплату
     return df.groupby('year')['converted_salary'].mean().round()
 
 
@@ -56,11 +74,11 @@ def save_html_table(yearly_salaries, output_dir):
         classes='table table-dark'
     )
 
-    # Добавляем CSS для кастомного дизайна
+    # Добавляем CSS для кастомного дизайна таблицы
     style = """
     <style>
         #salary_table {
-            background-color: #7766cf; /* skypurple */
+            background-color: #7766cf; /* цвет "sky purple" */
             border-collapse: separate;
             border-spacing: 0;
             border-radius: 15px;
@@ -95,9 +113,8 @@ def save_html_table(yearly_salaries, output_dir):
         f.write(html_table)
 
 
-
 def plot_yearly_salaries(yearly_salaries, img_dir):
-    # Используем стандартный стиль (без темного фона)
+    # Строим график по данным о средней зарплате за год
     plt.figure(figsize=(14, 10), facecolor='none')
 
     # График с вертикальными столбцами
@@ -127,16 +144,23 @@ def plot_yearly_salaries(yearly_salaries, img_dir):
 
 
 def main():
+    # Пути к файлам данных
     file_path = '../../../data/vacancies_2024.csv'
     exchange_file_path = '../../../data/currency.csv'
     output_data_dir = 'data'
     img_dir = 'data/img'
 
+    # Обработка данных и вычисление средней зарплаты по годам
     yearly_salaries = process_salary_data(file_path, exchange_file_path)
+
+    # Сохранение таблицы в HTML файл
     save_html_table(yearly_salaries, output_data_dir)
+
+    # Построение графика
     plot_yearly_salaries(yearly_salaries, img_dir)
 
 
 if __name__ == '__main__':
+    # Для работы с multiprocessing на Windows
     multiprocessing.freeze_support()
     main()

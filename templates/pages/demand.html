@@ -2,27 +2,34 @@
 {% load static %}
 {% block title %}Востребованность{% endblock %}
 {% block content %}
-    <h2 class="demand-title">Востребованность</h2>
+    <h1 class="demand-title">Востребованность</h1>
+
+    <!-- Раздел динамики уровня зарплат по годам -->
     <div class="salary-trend-row">
         <h2 class="dynamic-title">Динамика уровня зарплат по годам ({{ prof }})</h2>
         <div class="trend-group d-flex">
+            <!-- Таблица с данными по зарплатам -->
             <div class="trend-table">
                 {{ salary_by_year_table|safe }}
             </div>
+            <!-- График динамики зарплат по годам -->
             <div class="plot">
-                <img class="vacancies-by-year-plot" src="{{ salary_by_year_plot }}" alt="Динамика уровня зарплат по годам (C/C++ программист)" onclick="openFullScreen(this)">
+                <img class="vacancies-by-year-plot" src="{{ salary_by_year_plot }}" alt="Динамика уровня зарплат по годам ({{ prof }})" onclick="openFullScreen(this)">
             </div>
         </div>
     </div>
 
+    <!-- Раздел динамики количества вакансий по годам -->
     <div class="vacancy-trend-row">
         <h2 class="dynamic-title">Динамика количества вакансий по годам ({{ prof }})</h2>
         <div class="trend-group d-flex">
+            <!-- Таблица с данными по вакансиям -->
             <div class="trend-table">
                 {{ vacancy_by_year_table|safe }}
             </div>
+            <!-- График динамики количества вакансий -->
             <div class="plot">
-                <img class="vacancies-by-year-plot" src="{{ vacancy_by_year_plot }}" alt="Динамика количества вакансий по годам (C/C++ программист)" onclick="openFullScreen(this)">
+                <img class="vacancies-by-year-plot" src="{{ vacancy_by_year_plot }}" alt="Динамика количества вакансий по годам ({{ prof }})" onclick="openFullScreen(this)">
             </div>
         </div>
     </div>

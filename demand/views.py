@@ -7,8 +7,9 @@ def demand(request):
 
     # Если запись не найдена
     if stat is None:
-        return render(request, 'pages/demand.html', {'error': 'No data available'})
+        return render(request, 'pages/demand.html', {'error': 'Нет данных'})
 
+    # Создание контекста для рендеринга шаблона
     context = {
         'salary_by_year_plot': stat.salary_by_year_plot.url if stat.salary_by_year_plot else None,
         'salary_by_year_table': stat.salary_by_year_table if stat.salary_by_year_table else None,
@@ -17,4 +18,5 @@ def demand(request):
         'prof': 'C/C++ программист',
     }
 
+    # Рендеринг страницы с данными
     return render(request, 'pages/demand.html', context)

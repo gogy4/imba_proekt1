@@ -1,6 +1,8 @@
 from django.db import models
 
 class Skills(models.Model):
+    # Графики и таблицы для топ-20 навыков по годам с 2015 по 2024 для профессии C/C++ программист
+
     top_skills_plot_2015 = models.ImageField(blank=True, null=True, verbose_name='График топ-20 навыков 2015 (C/C++ программист)')
     top_skills_table_2015 = models.TextField(blank=True, null=True, verbose_name='Таблица топ-20 навыков 2015 (C/C++ программист)')
 

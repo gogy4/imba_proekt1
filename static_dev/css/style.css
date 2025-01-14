@@ -448,18 +448,16 @@ ul.resources-list .resource-item a:hover {
 }
 
 .skills-table td {
-    text-align: center; /* Центрируем текст в таблице */
+    text-align: center;
 }
 
-/* Стили для графика */
 .skills-plot {
     display: block;
-    margin: 30px auto; /* Центрируем график по горизонтали */
-    width: 80%; /* Новый размер графика по ширине */
-    height: 80%; /* Новый размер графика по высоте */
+    margin: 30px auto;
+    width: 80%;
+    height: 80%;
 }
 
-/* Добавим небольшие отступы вокруг блоков */
 .table-graph-wrapper {
     margin-top: 30px;
 }
@@ -476,135 +474,122 @@ ul.resources-list .resource-item a:hover {
     margin-right: 0;
 }
 
-/* Стили для страницы вакансий */
 .vacancies-title {
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
     text-align: center;
-    color: #6a4c9c; /* Фиолетовый цвет */
+    color: #6a4c9c;
 }
 
-/* Стили для списка вакансий */
 .vacancy-list {
     list-style-type: none;
     padding: 0;
 }
 
-/* Стили для каждой вакансии */
 .vacancy-list-item {
-    background-color: #f4e6fb; /* Светлый фиолетовый фон */
-    border: 1px solid #d1a7f7; /* Легкая фиолетовая рамка */
-    border-radius: 10px; /* Закругленные углы */
-    margin-bottom: 15px; /* Отступ между вакансиями */
+    background-color: #f4e6fb;
+    border: 1px solid #d1a7f7;
+    border-radius: 10px;
+    margin-bottom: 15px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Стили при наведении на вакансию */
 .vacancy-list-item:hover {
-    transform: translateY(-5px); /* Легкий подъем при наведении */
-    box-shadow: 0 4px 10px rgba(106, 76, 156, 0.3); /* Легкая тень с фиолетовым оттенком */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(106, 76, 156, 0.3);
 }
 
-/* Стили для заголовка вакансии */
 .vacancy-header {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #6a4c9c; /* Фиолетовый цвет для заголовка */
+    color: #6a4c9c;
 }
 
-/* Стили для компании (оставляем прежний цвет) */
 .vacancy-company {
     font-size: 16px;
-    color: #333; /* Черный/темно-серый цвет */
+    color: #333;
 }
 
-/* Стили для региона (оставляем прежний цвет) */
 .vacancy-region {
     font-size: 14px;
-    color: #555; /* Серый цвет */
+    color: #555;
 }
 
-/* Стили для описания вакансии */
 .vacancy-description, .vacancy-skills, .vacancy-publication-date {
     font-size: 14px;
     margin-top: 10px;
-    color: #333; /* Черный/темно-серый цвет */
+    color: #333;
 }
 
-/* Стили для зарплаты */
 .vacancy-salary {
     font-weight: bold;
-    color: #6a4c9c; /* Фиолетовый для зарплаты */
+    color: #6a4c9c;
 }
 
-/* Стили для текста "Навыки" */
 .vacancy-skills strong {
-    color: #6a4c9c; /* Фиолетовый для важного текста */
+    color: #6a4c9c;
 }
 
-/* Стили для даты публикации */
 .vacancy-publication-date strong {
-    color: #6a4c9c; /* Фиолетовый для важного текста */
+    color: #6a4c9c;
 }
 
-/* Стили для текста, если вакансий нет */
 .no-vacancies {
     font-size: 16px;
-    color: #9b7cb4; /* Бледный фиолетовый для текста */
+    color: #9b7cb4;
     text-align: center;
     margin-top: 20px;
 }
 
 .trend-group {
     display: flex;
-    align-items: center; /* Центрирует элементы по вертикали */
+    align-items: center;
     gap: 20px;
-    border: 2px solid purple; /* Фиолетовая рамка */
-    background-color: #f5f0f5; /* Задний фон */
-    padding: 20px; /* Отступы внутри контейнера */
-    border-radius: 8px; /* Закругленные углы рамки */
+    border: 2px solid purple;
+    background-color: #f5f0f5;
+    padding: 20px;
+    border-radius: 8px;
     margin-bottom: 150px;
 }
 
 .trend-table {
     flex: 1;
     overflow-x: auto;
-    margin-left: 10px; /* Уменьшаем отступ слева от таблицы */
+    margin-left: 10px;
 }
 
 .plot {
-    flex: 0 0 75%; /* Увеличиваем ширину графика, чтобы он занимал больше пространства */
+    flex: 0 0 75%;
     display: flex;
-    justify-content: flex-start; /* График слева */
-    align-items: center; /* Центрирует график по вертикали */
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .plot img {
     width: 100%;
     height: auto;
-    max-width: 1200px; /* Увеличиваем максимальную ширину графика */
+    max-width: 1200px;
 }
-/* Модальное окно */
+
 .fullscreen-modal {
-    display: none; /* Скрыто по умолчанию */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Темный полупрозрачный фон */
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
-/* Когда модальное окно открыто */
 .fullscreen-modal.open {
-    display: flex; /* Показываем модальное окно */
-    background-color: #f5f0f5; /* Задний фон #f5f0f5 */
+    display: flex;
+    background-color: #f5f0f5;
 }
 
 .fullscreen-modal img {
@@ -617,7 +602,6 @@ ul.resources-list .resource-item a:hover {
     text-align: center;
 }
 
-/* Кнопка закрытия модального окна */
 .close-button {
     position: absolute;
     top: 20px;
@@ -634,9 +618,8 @@ ul.resources-list .resource-item a:hover {
     background: rgba(0, 0, 0, 0.7);
 }
 
-/* Стиль для модального окна */
 .modal {
-    display: none; /* Изначально скрыто */
+    display: none;
     position: fixed;
     z-index: 9999;
     padding-top: 100px;
@@ -644,11 +627,10 @@ ul.resources-list .resource-item a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(245, 240, 245, 0.9);
     overflow: auto;
 }
 
-/* Стиль для изображения в модальном окне */
 .modal-content {
     margin: auto;
     display: block;
@@ -656,46 +638,6 @@ ul.resources-list .resource-item a:hover {
     max-width: 1000px;
 }
 
-/* Кнопка закрытия */
-.close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: #fff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-/* Стиль для модального окна */
-.modal {
-    display: none; /* Изначально скрыто */
-    position: fixed;
-    z-index: 9999;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(245, 240, 245, 0.9); /* Задний фон с полупрозрачным цветом #f5f0f5 */
-    overflow: auto;
-}
-
-/* Стиль для изображения в модальном окне */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 1000px;
-}
-
-/* Кнопка закрытия */
 .close {
     position: absolute;
     top: 20px;
@@ -713,20 +655,19 @@ ul.resources-list .resource-item a:hover {
     cursor: pointer;
 }
 
-/* Модальное окно */
-.fullscreen-modal {
-    display: none; /* Скрыто по умолчанию */
+.modal {
+    display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 9999;
+    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(245, 240, 245, 0.9); /* Полупрозрачный фон */
+    background-color: #f4e6fb;
     overflow: auto;
 }
 
-/* Контент модального окна */
 .modal-content {
     position: relative;
     margin: auto;
@@ -735,46 +676,41 @@ ul.resources-list .resource-item a:hover {
     max-width: 1200px;
 }
 
-/* Кнопка закрытия */
 .close-button {
     position: absolute;
     top: 10px;
     right: 20px;
-    color: #fff; /* Белый текст */
+    color: #fff;
     font-size: 30px;
-    background-color: #800080; /* Фиолетовый фон */
+    background-color: #800080;
     border: none;
     padding: 10px 15px;
-    border-radius: 50%; /* Круглая кнопка */
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Эффект при наведении на кнопку */
 .close-button:hover {
-    background-color: #9b30b6; /* Светлый фиолетовый при наведении */
+    background-color: #9b30b6;
 }
 
-/* Изображение в модальном окне */
 #fullscreen-img {
     width: 100%;
     height: auto;
 }
 
-/* Модальное окно */
 .fullscreen-modal {
-    display: none; /* Скрыто по умолчанию */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #f4e6fb; /* Светлый фиолетовый фон */
+    background-color: #f4e6fb;
     overflow: auto;
 }
 
-/* Контент модального окна */
 .modal-content {
     position: relative;
     margin: auto;
@@ -783,29 +719,156 @@ ul.resources-list .resource-item a:hover {
     max-width: 1200px;
 }
 
-/* Кнопка закрытия */
 .close-button {
     position: absolute;
     top: 10px;
     right: 20px;
-    color: #fff; /* Белый текст */
+    color: #fff;
     font-size: 30px;
-    background-color: #800080; /* Фиолетовый фон */
+    background-color: #800080;
     border: none;
     padding: 10px 15px;
-    border-radius: 50%; /* Круглая кнопка */
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Эффект при наведении на кнопку */
 .close-button:hover {
-    background-color: #9b30b6; /* Светлый фиолетовый при наведении */
+    background-color: #9b30b6;
 }
 
-/* Изображение в модальном окне */
 #fullscreen-img {
     width: 100%;
     height: auto;
 }
 
+.years-buttons-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.year-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.year-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.year-button.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.year-button:focus {
+    outline: none;
+}
+
+.years-buttons-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.plot {
+    margin-top: 20px;
+}
+
+.years-buttons-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.year-button {
+    background-color: #f5f0f5;
+    border: 2px solid purple;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+}
+
+.year-button:hover {
+    background-color: #e0d5e5;
+    transform: scale(1.05);
+}
+
+.year-button.selected {
+    background-color: #d0aad0;
+    color: white;
+    border-color: purple;
+}
+
+.year-button:focus {
+    outline: none;
+}
+
+.years-buttons-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.year-button {
+    background-color: #f5f0f5;
+    border: 2px solid purple;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+}
+
+.year-button:hover {
+    background-color: #e0d5e5;
+    transform: scale(1.05);
+}
+
+.year-button.selected {
+    background-color: #d0aad0;
+    color: white;
+    border-color: purple;
+}
+
+.year-button:focus {
+    outline: none;
+}
+
+.fullscreen-modal .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-skills-plot,
+.salary-by-year-plot,
+.vacancies-by-year-plot,
+.salary-by-city-plot,
+.vacancy-share-by-city-plot {
+    max-width: 100%;
+    height: auto;
+}

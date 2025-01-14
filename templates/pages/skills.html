@@ -1,32 +1,36 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}Последние ваканси{% endblock %}
+{% extends "base.html" %}  <!-- Расширяет основной шаблон base.html, добавляя содержимое в блоки title и content -->
+{% load static %}  <!-- Загружает статические файлы, чтобы можно было использовать их в шаблоне (например, CSS, изображения) -->
+
+{% block title %}Последние вакансии{% endblock %}  <!-- Устанавливает заголовок страницы "Последние вакансии" -->
+
 {% block content %}
-    <h2 class="section-title">Навыки</h2>
+    <h1 class="section-title">Навыки</h1>  <!-- Заголовок для раздела, посвященного навыкам -->
+
+    <h2 class="dynamic-title">Топ навыков для C/C++ программист</h2>  <!-- Подзаголовок, который указывает, что отображаются топовые навыки для C/C++ программистов -->
+
     <div class="form-container-wrapper">
         <div class="form-container">
-            <form method="get" action="{% url 'skills:skills' %}">
+            <form id="skills-form" method="get" action="{% url 'skills:skills' %}">  <!-- Форма для выбора года -->
                 <div class="form-group">
-                    <label for="year" class="form-label">Выберите год:</label>
-                    <select name="year" id="year" class="form-select">
-                        {% for year in unique_years %}
-                            <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
+                    <div class="years-buttons-container">  <!-- Контейнер для кнопок с годами -->
+                        {% for year in unique_years %}  <!-- Перебирает все уникальные года из списка unique_years -->
+                            <button type="submit" name="year" value="{{ year }}" class="year-button {% if year == selected_year %}selected{% endif %}">
+                                {{ year }}  <!-- Каждая кнопка соответствует одному году -->
+                            </button>
                         {% endfor %}
-                    </select>
+                    </div>
                 </div>
-                <button type="submit" class="form-button">Применить</button>
             </form>
         </div>
     </div>
 
     <div class="top-skills-row">
-        <h2>Топ навыков для C/C++ программист</h2>
-        <div class="trend-group d-flex">
+        <div class="trend-group d-flex">  <!-- Контейнер для группировки таблицы и графика -->
             <div class="trend-table">
-                {{ top_skills_table|safe }}
+                {{ top_skills_table|safe }}  <!-- Выводит таблицу топовых навыков (с помощью фильтра 'safe' для отображения HTML-кода) -->
             </div>
             <div class="plot">
-                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">
+                <img class="top-skills-plot" src="{{ top_skills_plot }}" alt="Топ навыков" onclick="openFullScreen(this)">  <!-- Изображение графика с топовыми навыками. При клике на изображение открывается полноэкранный режим -->
             </div>
         </div>
     </div>

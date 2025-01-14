@@ -6,28 +6,34 @@
 {% endblock %}
 
 {% block content %}
-    <h2 class="geography-title">География</h2>
+    <h1 class="geography-title">География</h1>
 
+    <!-- Раздел для уровня зарплат по городам -->
     <div class="salary-trend-row">
-        <h3 class="salary-level-title">Уровень зарплат по городам ({{ prof }})</h3>
+        <h2 class="dynamic-title">Уровень зарплат по городам ({{ prof }})</h2>
         <div class="trend-group d-flex table-graph-wrapper geography-table-wrapper">
+            <!-- Таблица с данными по зарплатам по городам -->
             <div class="trend-table">
                 {{ salary_by_city_table|safe }}
             </div>
+            <!-- График уровня зарплат по городам -->
             <div class="plot">
-                <img class="vacancies-by-year-plot" src="{{ salary_by_city_plot }}" alt="Динамика уровня зарплат по годам (C/C++ программист)" onclick="openFullScreen(this)">
+                <img class="vacancies-by-year-plot" src="{{ salary_by_city_plot }}" alt="Уровень зарплат по городам ({{ prof }})" onclick="openFullScreen(this)">
             </div>
         </div>
     </div>
 
+    <!-- Раздел для доли вакансий по городам -->
     <div class="salary-trend-row">
-        <h3 class="vacancy-share-title">Доля вакансий по городам ({{ prof }})</h3>
+        <h2 class="dynamic-title">Доля вакансий по городам ({{ prof }})</h2>
         <div class="trend-group d-flex table-graph-wrapper geography-table-wrapper">
+            <!-- Таблица с данными по доле вакансий по городам -->
             <div class="trend-table">
                 {{ vacancy_by_city_table|safe }}
             </div>
+            <!-- График доли вакансий по городам -->
             <div class="plot">
-                <img class="vacancies-by-year-plot" src="{{ vacancy_by_city_plot }}" alt="Динамика уровня зарплат по годам (C/C++ программист)" onclick="openFullScreen(this)">
+                <img class="vacancies-by-year-plot" src="{{ vacancy_by_city_plot }}" alt="Доля вакансий по городам ({{ prof }})" onclick="openFullScreen(this)">
             </div>
         </div>
     </div>
