@@ -1,3 +1,6 @@
 /data/
 __pycache__/
 */__pycache__/
+/all_statistics/data_skills/
+/all_statistics/demand/data/
+
