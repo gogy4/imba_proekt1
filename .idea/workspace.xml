@@ -7,52 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="написал больше стилий для страниц, написал js скрипт, исправил скрипты для общей статистики, исправил все таблицы">
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/demand/salary_by_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/demand/salary_by_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/demand/vacancy_by_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/demand/vacancy_by_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/geography/salaries_by_city.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/geography/salaries_by_city.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/geography/vacancy_by_city.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/geography/vacancy_by_city.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/all_statistics/skills/top_skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/all_statistics/skills/top_skills.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/demand/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/demand/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/demand/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/demand/table.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/geography/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/geography/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demand/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/demand/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demand/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demand/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demand/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/demand/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demand/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/demand/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geography/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/geography/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geography/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/geography/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geography/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geography/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geography/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/geography/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/last_vacancies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/last_vacancies/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skills/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skills/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skills/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skills/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_dev/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/avg_salary_by_year_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/demand/img/vacancy_count_by_year.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/js/scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/skills/img/skills_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/statics_page/img/city_salary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/statics_page/img/salary_dynamic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_dev/statics_page/img/vacancy_dynamic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics_page/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/demand.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/demand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/geography.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/geography.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/last_vacancies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/last_vacancies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/statistics_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/statistics_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,43 +63,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.DjangoProject.executor": "Run",
-    "JavaScript Debug.vacancies_by_year.html.executor": "Run",
-    "Python.currency_fetch.executor": "Run",
-    "Python.demand (1).executor": "Run",
-    "Python.demand.executor": "Run",
-    "Python.fetch_currency.executor": "Run",
-    "Python.graphs (1).executor": "Run",
-    "Python.graphs.executor": "Run",
-    "Python.salaries_by_city.executor": "Run",
-    "Python.salary_by_year.executor": "Run",
-    "Python.skills_prof.executor": "Run",
-    "Python.table (1).executor": "Run",
-    "Python.table.executor": "Run",
-    "Python.top_skills (1).executor": "Run",
-    "Python.top_skills.executor": "Run",
-    "Python.vacancies_by_year.executor": "Run",
-    "Python.vacancy_by_city.executor": "Run",
-    "Python.vacancy_by_year.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/pycharmProject/SwagProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.DjangoProject.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.vacancies_by_year.html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.currency_fetch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.demand (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.demand.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fetch_currency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphs (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphs.executor&quot;: &quot;Run&quot;,
+    &quot;Python.salaries_by_city.executor&quot;: &quot;Run&quot;,
+    &quot;Python.salary_by_year.executor&quot;: &quot;Run&quot;,
+    &quot;Python.skills_prof.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.table.executor&quot;: &quot;Run&quot;,
+    &quot;Python.top_skills (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.top_skills.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vacancies_by_year.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vacancy_by_city.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vacancy_by_year.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/pycharmProject/SwagProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\pages" />
@@ -333,6 +291,11 @@
       <workItem from="1736794353463" duration="2863000" />
       <workItem from="1736836150361" duration="130000" />
       <workItem from="1736836308831" duration="2009000" />
+      <workItem from="1736869160728" duration="835000" />
+      <workItem from="1736871958007" duration="218000" />
+      <workItem from="1736872308982" duration="110000" />
+      <workItem from="1736872554183" duration="1100000" />
+      <workItem from="1736874954293" duration="1735000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -502,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736855761832</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова">
+      <option name="closed" value="true" />
+      <created>1736865648115</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1736865648115</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +510,8 @@
     <MESSAGE value="добавил скрипты для общей статистики, исправил скрипты для скиллов, исправил ошибку" />
     <MESSAGE value="изменил папки сохранение статики со скриптов, добавил систему администрирования, добавил модели для demand, geography, skills, statistics_page, исправил templates/" />
     <MESSAGE value="написал больше стилий для страниц, написал js скрипт, исправил скрипты для общей статистики, исправил все таблицы" />
-    <option name="LAST_COMMIT_MESSAGE" value="написал больше стилий для страниц, написал js скрипт, исправил скрипты для общей статистики, исправил все таблицы" />
+    <MESSAGE value="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова" />
+    <option name="LAST_COMMIT_MESSAGE" value="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,19 +11,19 @@ urlpatterns = [
     path('', include('home.urls')),
 
     # Путь к странице статистики
-    path('/statistics_page/', include('statistics_page.urls')),
+    path('statistics_page/', include('statistics_page.urls')),
 
     # Путь к странице с данными о спросе
-    path('/demand/', include('demand.urls')),
+    path('demand/', include('demand.urls')),
 
     # Путь к странице географической информации
-    path('/geography/', include('geography.urls')),
+    path('geography/', include('geography.urls')),
 
     # Путь к странице с навыками
     path('skills/', include('skills.urls')),
 
     # Путь к странице с последними вакансиями
-    path('/last_vacancies/', include('last_vacancies.urls')),
+    path('last_vacancies/', include('last_vacancies.urls')),
 ]
 
 # Если в настройках включен режим отладки, добавляем путь для медиафайлов
