@@ -3,26 +3,26 @@
 {% block title %}Последние ваканси{% endblock %}
 {% block content %}
     <h2 class="section-title">Навыки</h2>
+    <div class="form-container-wrapper">
+        <div class="form-container">
+            <form method="get" action="{% url 'skills:skills' %}">
+                <div class="form-group">
+                    <label for="year" class="form-label">Выберите год:</label>
+                    <select name="year" id="year" class="form-select">
+                        {% for year in unique_years %}
+                            <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="form-button">Применить</button>
+            </form>
+        </div>
+    </div>
     <div class="year-block">
         <h3 class="skills-header">ТОП-20 навыков по годам для {{ prof }}. Наиболее высокочастотные навыки</h3>
         <div class="table-graph-wrapper">
-            <table class="skills-table">
-                <thead class="skills-table-header">
-                    <tr>
-                        <th class="skill-column">Навык</th>
-                        <th class="count-column">Количество</th>
-                    </tr>
-                </thead>
-                <tbody class="skills-table-body">
-                    {% for row in skills_prof %}
-                        <tr class="skills-row">
-                            <td class="skill-name">{{ row.skill_name }}</td>
-                            <td class="skill-count">{{ row.count }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <img class="skills-plot" src="{% static 'skills/img/skills_plot.png' %}" alt="График" width="1000" height="600">
+            <img class="skills-plot" src="{{ top_skills_plot }}" alt="График" width="1000" height="600">
+            <div class="trend-table mt-3">{{ top_skills_table|safe }}</div>
         </div>
     </div>
 {% endblock %}

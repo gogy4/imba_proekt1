@@ -122,12 +122,12 @@ def plot_average_salaries_by_city(city_avg_salaries):
     plt.xlabel('Средняя зарплата (руб.)', fontsize=14)
 
     # Сохранение графика в папку static_dev/geography/img
-    output_dir = 'static_dev/geography/img'
+    output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     plt.tight_layout()
-    output_path = os.path.join(output_dir, 'avg_salaries_by_city.png')
+    output_path = os.path.join(output_dir, 'salary_by_city.png')
     plt.savefig(output_path)
     plt.close()
 
@@ -163,20 +163,20 @@ def plot_vacancy_shares_by_city(top_10_city_shares):
     plt.title('Доля вакансий по городам для C/C++ программистов', fontsize=24, color='#9b59b6')  # Фиолетовый цвет для заголовка
 
     # Сохранение графика в папку static_dev/geography/img
-    output_dir = 'static_dev/geography/img'
+    output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     plt.tight_layout()
-    output_path = os.path.join(output_dir, 'vacancy_shares_by_city.png')
+    output_path = os.path.join(output_dir, 'vacancy_by_city.png')
     plt.savefig(output_path)
     plt.close()
 
 
 def main():
     # Пути к файлам
-    vacancies_file = 'data/vacancies_by_name.csv'
-    currency_file = 'data/currency.csv'
+    vacancies_file = '../../data/vacancies_by_name.csv'
+    currency_file = '../../data/currency.csv'
 
     # Получение результатов
     city_avg_salaries, top_10_city_shares = analyze_vacancies_and_salaries(vacancies_file, currency_file)

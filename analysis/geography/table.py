@@ -44,7 +44,7 @@ def export_city_share_to_html(city_share_df):
     )
 
     # Путь для сохранения HTML файла
-    html_file_path = 'data/city_shares.html'
+    html_file_path = 'data/vacancy_by_city.html'
 
     # Создание папки, если она не существует
     os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
@@ -124,7 +124,7 @@ def analyze_salary_data(vacancy_data_path, currency_data_path):
 # Функция для сохранения данных о зарплатах в HTML
 def export_city_salaries_to_html(city_avg_salary_df):
     # Путь для сохранения HTML файла
-    salary_html_path = 'data/city_salaries.html'
+    salary_html_path = 'data/salary_by_city.html'
 
     # Создание папки, если она не существует
     os.makedirs(os.path.dirname(salary_html_path), exist_ok=True)
@@ -137,8 +137,8 @@ def export_city_salaries_to_html(city_avg_salary_df):
 # Основная функция, которая обрабатывает данные и сохраняет результаты
 def main():
     # Пути к файлам
-    vacancy_data_path = 'data/vacancies_by_name.csv'
-    currency_data_path = 'data/currency.csv'
+    vacancy_data_path = '../../data/vacancies_by_name.csv'
+    currency_data_path = '../../data/currency.csv'
 
     # Получение данных о доле вакансий по городам
     city_share = analyze_city_data(vacancy_data_path)

@@ -1,7 +1,6 @@
 import requests
 import re
 from django.shortcuts import render
-from .models import Vacancy
 
 # Очистка HTML-тегов из описания
 def clear_html(line: str) -> str:
@@ -63,7 +62,5 @@ def get_hh_vacancies(profession):
 def last_vacancies(request):
     profession = 'C/C++ программист'
     vacancies = get_hh_vacancies(profession)
-    Vacancy.objects.bulk_create([Vacancy(**vacancy_data) for vacancy_data in vacancies])
-
     context = {'vacancies': vacancies, 'profession': profession}
     return render(request, 'pages/last_vacancies.html', context)

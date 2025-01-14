@@ -46,9 +46,9 @@ def plot_vacancy_counts(years, counts):
     plt.grid(True, axis='y', color='gray', linestyle='--', alpha=0.5)
 
     # Сохранение графика в файл с белым фоном
-    os.makedirs('static_dev/demand/img', exist_ok=True)  # Создание папки, если ее нет
+    os.makedirs('data/img', exist_ok=True)  # Создание папки, если ее нет
     plt.tight_layout()
-    plt.savefig('static_dev/demand/img/vacancy_count_by_year.png', bbox_inches='tight', facecolor='white')
+    plt.savefig('data/img/vacancy_by_year.png', bbox_inches='tight', facecolor='white')
     plt.close()  # Закрываем figure
 
 # Функция для расчета зарплаты с учетом валют
@@ -126,15 +126,15 @@ def plot_avg_salary_by_year(avg_salaries_by_year):
     plt.tight_layout()
 
     # Сохранение графика с белым фоном
-    os.makedirs('static_dev/demand/img', exist_ok=True)  # Создание папки, если ее нет
-    plt.savefig('static_dev/demand/img/avg_salary_by_year_plot.png', bbox_inches='tight', facecolor='white')
+    os.makedirs('data/img', exist_ok=True)  # Создание папки, если ее нет
+    plt.savefig('data/salary_by_year.png', bbox_inches='tight', facecolor='white')
     plt.close()  # Закрываем figure
 
 # Главная функция
 def execute_analysis():
     # Пути к файлам
-    file_path = 'data/vacancies_by_name.csv'
-    currency_file_path = 'data/currency.csv'
+    file_path = '../../data/vacancies_by_name.csv'
+    currency_file_path = '../../data/currency.csv'
 
     # Получение результатов по вакансиям
     yearly_vacancies = count_vacancies_by_year(file_path)

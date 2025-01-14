@@ -96,14 +96,14 @@ def save_salary_to_html(average_salaries):
         float_format='{:,.0f}'.format  # Форматирование чисел
     )
 
-    with open('data/average_salary_by_year.html', 'w', encoding='utf-8') as f:
+    with open('data/salary_by_year.html', 'w', encoding='utf-8') as f:
         f.write(html_string)
 
 # Главная функция
 def run_analysis():
     # Пути к файлам
-    file_path = 'data/vacancies_by_name.csv'
-    currency_file_path = 'data/currency.csv'
+    file_path = '../../data/vacancies_by_name.csv'
+    currency_file_path = '../../data/currency.csv'
 
     # Получение результатов по вакансиям
     vacancies_by_year = count_vacancies_by_year(file_path)

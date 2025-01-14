@@ -3,51 +3,14 @@
 {% block title %}Востребованность{% endblock %}
 {% block content %}
     <h2 class="demand-title">Востребованность</h2>
-
     <h3 class="dynamic-title">Динамика уровня зарплат по годам ({{ prof }})</h3>
     <div class="table-graph-wrapper salary-dynamics-wrapper">
-        <table class="dynamic-salary-table">
-            <tbody>
-                {% for row in dynamic_salary_all %}
-                    <tr class="salary-row">
-                        <td class="year-data">{{ row.year }}</td>
-                        <td class="salary-data">{{ row.average_salary }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'demand/img/avg_salary_by_year_plot.png' %}" alt="График" class="graph dynamic-salary-graph">
-        <table class="dynamic-salary-table">
-            <thead>
-                <tr>
-                    <th class="header-year">Год</th>
-                    <th class="header-salary">Средняя зарплата</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in dynamic_salary_all %}
-                    <tr class="salary-row">
-                        <td class="year-data">{{ row.year }}</td>
-                        <td class="salary-data">{{ row.average_salary }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <img src="{{salary_by_year_plot }}" alt="График" class="graph dynamic-salary-graph">
+        <div class="trend-table mt-3">{{ salary_by_year_table|safe }}</div>
     </div>
-
     <h3 class="dynamic-title">Динамика количества вакансий по годам ({{ prof }})</h3>
     <div class="table-graph-wrapper vacancy-dynamics-wrapper">
-
-        <table class="dynamic-count-table">
-            <tbody>
-                {% for row in dynamic_count_all %}
-                    <tr class="count-row">
-                        <td class="year-data">{{ row.year }}</td>
-                        <td class="vacancy-data">{{ row.vacancy_count }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'demand/img/vacancy_count_by_year.png' %}" alt="График" class="graph dynamic-count-graph">
+        <img src="{{vacancy_by_year_plot }}" alt="График" class="graph dynamic-salary-graph">
+        <div class="trend-table mt-3">{{ salary_by_year_table|safe }}</div>
     </div>
 {% endblock %}

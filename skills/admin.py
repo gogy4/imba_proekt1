@@ -1,14 +1,8 @@
-# skills/admin.py
 from django.contrib import admin
-from .models import TopSkillsAll, TopSkillsProf
+from .models import Skills
 
-class TopSkillsAllAdmin(admin.ModelAdmin):
-    list_display = ('skill_name', 'count', 'year')
-    search_fields = ('skill_name',)
+class SkillsAdmin(admin.ModelAdmin):
+    list_display = [f'top_skills_plot_{year}' for year in range(2015, 2025)]
+    search_fields = [f'top_skills_plot_{year}' for year in range(2015, 2025)]
 
-class TopSkillsProfAdmin(admin.ModelAdmin):
-    list_display = ('skill_name', 'count', 'year')
-    search_fields = ('skill_name',)
-
-admin.site.register(TopSkillsAll, TopSkillsAllAdmin)
-admin.site.register(TopSkillsProf, TopSkillsProfAdmin)
+admin.site.register(Skills, SkillsAdmin)

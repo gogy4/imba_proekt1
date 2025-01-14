@@ -9,44 +9,14 @@
     <h2 class="geography-title">География</h2>
     <h3 class="salary-level-title">Уровень зарплат по городам ({{ prof }})</h3>
     <div class="table-graph-wrapper geography-table-wrapper">
-        <table class="geography-table">
-            <thead>
-                <tr>
-                    <th class="geography-city-header">Город</th>
-                    <th class="geography-salary-header">Средняя Зарплата</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in area_salary_prof %}
-                    <tr class="geography-row">
-                        <td class="geography-city">{{ row.area_name }}</td>
-                        <td class="geography-salary">{{ row.average_salary }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'geography/img/avg_salaries_by_city.png' %}" alt="График" class="geography-salary-graph">
+        <div class="trend-table mt-3">{{ salary_by_city_table|safe }}</div>
+        <img src="{{ salary_by_city_plot }}" alt="График" class="geography-salary-graph">
     </div>
 
     <h3 class="vacancy-share-title">Доля вакансий по городам ({{ prof }})</h3>
     <div class="table-graph-wrapper geography-table-wrapper">
-        <table class="geography-table">
-            <thead>
-                <tr>
-                    <th class="geography-city-header">Город</th>
-                    <th class="geography-vacancy-header">Доля вакансий</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in area_count_prof %}
-                    <tr class="geography-row">
-                        <td class="geography-city">{{ row.area_name }}</td>
-                        <td class="geography-vacancy">{{ row.vacancy_count }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <img src="{% static 'geography/img/vacancy_shares_by_city.png' %}" alt="График" class="geography-vacancy-graph">
+        <div class="trend-table mt-3">{{ vacancy_by_city_table|safe }}</div>
+        <img src="{{ vacancy_by_city_table }}" alt="График" class="geography-salary-graph">
     </div>
 
 {% endblock %}

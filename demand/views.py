@@ -1,16 +1,20 @@
 from django.shortcuts import render
-from .models import DynamicSalaryAll, DynamicCountAll, DynamicSalaryProf, DynamicCountProf
+from .models import Demand
 
 def demand(request):
-    dynamic_salary_all = DynamicSalaryAll.objects.values('year', 'average_salary')
-    dynamic_count_all = DynamicCountAll.objects.values('year', 'vacancy_count')
-    dynamic_salary_prof = DynamicSalaryProf.objects.values('year', 'average_salary')
-    dynamic_count_prof = DynamicCountProf.objects.values('year', 'vacancy_count')
+    # Попытка найти первую запись в модели Demand
+    stat = Demand.objects.first()
+
+    # Если запись не найдена
+    if stat is None:
+        return render(request, 'pages/demand.html', {'error': 'No data available'})
+
     context = {
-        'dynamic_salary_all': dynamic_salary_all,
-        'dynamic_count_all': dynamic_count_all,
-        'dynamic_salary_prof': dynamic_salary_prof,
-        'dynamic_count_prof': dynamic_count_prof,
+        'salary_by_year_plot': stat.salary_by_year_plot if stat.salary_by_year_plot else None,
+        'salary_by_year_table': stat.salary_by_year_table if stat.salary_by_year_table else None,
+        'vacancy_by_year_plot': stat.vacancy_by_year_plot.url if stat.vacancy_by_year_plot else None,
+        'vacancy_by_year_table': stat.vacancy_by_year_table if stat.vacancy_by_year_table else None,
         'prof': 'C/C++ программист',
     }
+
     return render(request, 'pages/demand.html', context)
