@@ -124,7 +124,6 @@ def plot_average_salaries_by_city(city_avg_salaries):
     plt.xlabel('Средняя зарплата (руб.)', fontsize=14, color='black')  # Подпись оси X
     plt.ylabel('', fontsize=14, color='black')  # Подпись оси Y
 
-    # Сохранение графика в папку static_dev/geography/img
     output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -165,7 +164,6 @@ def plot_vacancy_shares_by_city(top_10_city_shares):
 
     plt.title('Доля вакансий по городам для C/C++ программистов', fontsize=24, color='black')  # Заголовок
 
-    # Сохранение графика в папку static_dev/geography/img
     output_dir = 'data/img'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)

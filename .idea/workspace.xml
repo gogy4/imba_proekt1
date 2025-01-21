@@ -7,10 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова">
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="добавил ссылку на логотип">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geography/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geography/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/currency_fetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/currency_fetch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/demand/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/demand/graphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/geography/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/geography/graphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/skills/top_skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/skills/top_skills.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/vacancies_by_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/vacancies_by_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/last_vacancies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/last_vacancies/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/last_vacancies/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/last_vacancies/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skills/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics_page/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +114,30 @@
       <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\DjangoProject\management\commands" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.graphs">
+  <component name="RunManager" selected="Python.currency_fetch">
+    <configuration name="currency_fetch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DjangoProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/currency_fetch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="graphs (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DjangoProject" />
       <option name="ENV_FILES" value="" />
@@ -199,29 +230,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="top_skills" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DjangoProject" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/all_statistics/skills" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/all_statistics/skills/top_skills.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="DjangoProject" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject" />
       <option name="ENV_FILES" value="" />
@@ -249,11 +257,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.currency_fetch" />
         <item itemvalue="Python.graphs" />
         <item itemvalue="Python.table" />
         <item itemvalue="Python.graphs (1)" />
         <item itemvalue="Python.top_skills (1)" />
-        <item itemvalue="Python.top_skills" />
       </list>
     </recent_temporary>
   </component>
@@ -295,7 +303,11 @@
       <workItem from="1736871958007" duration="218000" />
       <workItem from="1736872308982" duration="110000" />
       <workItem from="1736872554183" duration="1100000" />
-      <workItem from="1736874954293" duration="1735000" />
+      <workItem from="1736874954293" duration="1938000" />
+      <workItem from="1736876940201" duration="86000" />
+      <workItem from="1736877049359" duration="61000" />
+      <workItem from="1737363258555" duration="1653000" />
+      <workItem from="1737454384225" duration="6215000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -473,7 +485,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736865648115</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="исправил недочеты, из за которых не грузился сайт на хосте">
+      <option name="closed" value="true" />
+      <created>1736876771063</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876771063</updated>
+    </task>
+    <task id="LOCAL-00024" summary="добавил ссылку на логотип">
+      <option name="closed" value="true" />
+      <created>1736876895150</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876895150</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +539,9 @@
     <MESSAGE value="изменил папки сохранение статики со скриптов, добавил систему администрирования, добавил модели для demand, geography, skills, statistics_page, исправил templates/" />
     <MESSAGE value="написал больше стилий для страниц, написал js скрипт, исправил скрипты для общей статистики, исправил все таблицы" />
     <MESSAGE value="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова" />
-    <option name="LAST_COMMIT_MESSAGE" value="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова" />
+    <MESSAGE value="исправил недочеты, из за которых не грузился сайт на хосте" />
+    <MESSAGE value="добавил ссылку на логотип" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил ссылку на логотип" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -520,6 +550,15 @@
           <url>file://$PROJECT_DIR$/DjangoProject/urls.py</url>
           <line>6</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/last_vacancies/urls.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/analysis/demand/graphs.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -532,6 +571,7 @@
     <SUITE FILE_PATH="coverage/manage_py$skills_prof.coverage" NAME="skills_prof Coverage Results" MODIFIED="1736840020360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/skills" />
     <SUITE FILE_PATH="coverage/manage_py$salary_by_year.coverage" NAME="salary_by_year Coverage Results" MODIFIED="1736848646938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
     <SUITE FILE_PATH="coverage/manage_py$vacancy_by_city.coverage" NAME="vacancy_by_city Coverage Results" MODIFIED="1736850732433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/geography" />
+    <SUITE FILE_PATH="coverage/manage_py$currency_fetch.coverage" NAME="currency_fetch Coverage Results" MODIFIED="1737459939166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/manage_py$salaries_by_city.coverage" NAME="salaries_by_city Coverage Results" MODIFIED="1736849181896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/geography" />
     <SUITE FILE_PATH="coverage/manage_py$table.coverage" NAME="table Coverage Results" MODIFIED="1736861876660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/demand" />
     <SUITE FILE_PATH="coverage/manage_py$vacancies_by_year.coverage" NAME="vacancies_by_year Coverage Results" MODIFIED="1736796840002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />

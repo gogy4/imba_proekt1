@@ -26,7 +26,7 @@ def filter_vacancy(file_path, output_path):
     except Exception as e:
         print(f"Произошла ошибка: {e}")
 
-input_file = 'data/vacancies_2024.csv'
-output_file = 'data/vacancies_by_name.csv'
+input_file = '../data/vacancies_2024.csv'
+output_file = '../data/vacancies_by_name.csv'
 
 filter_vacancy(input_file, output_file)

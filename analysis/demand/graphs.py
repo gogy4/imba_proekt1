@@ -54,30 +54,48 @@ def plot_vacancy_counts(years, counts):
 def compute_salary(row, currency_data):
     # Функция для получения курса валюты на месяц
     def get_exchange_rate():
+        # Извлекаем дату из строки (месяц, для которого нужно получить курс валюты)
         date = row['month']
+        # Извлекаем валюту из строки, в которой указана валюта зарплаты
         currency = row['salary_currency']
+
+        # Если валюта есть в данных о курсах валют (столбцы должны соответствовать валютам),
+        # то ищем строку с нужной датой
         if currency in currency_data.columns:
+            # Ищем строки в данных о курсах валют, где дата совпадает с месяцем из строки
             rate_row = currency_data.loc[currency_data['date'] == date]
+
+            # Если строка с курсом найдена, возвращаем курс для данной валюты
+            # Иначе, если строка пустая, возвращаем NaN
             return rate_row[currency].values[0] if not rate_row.empty else np.nan
+
+        # Если валюты нет в данных о курсах, возвращаем NaN
         return np.nan
 
-    # Если данные о зарплате отсутствуют, возвращаем NaN
+    # Проверяем, если данные о зарплате отсутствуют (и salary_from, и salary_to равны NaN),
+    # то сразу возвращаем NaN, так как нечего рассчитывать
     if pd.isna(row['salary_from']) and pd.isna(row['salary_to']):
         return np.nan
 
-    # Рассчитываем среднюю зарплату, если один из параметров отсутствует
+    # Если одна из составляющих зарплаты отсутствует (например, salary_from или salary_to),
+    # то считаем, что зарплата равна другой составляющей
     if pd.isna(row['salary_from']):
         salary = row['salary_to']
     elif pd.isna(row['salary_to']):
         salary = row['salary_from']
     else:
+        # Если обе составляющие зарплаты присутствуют, то считаем среднее значение
         salary = (row['salary_from'] + row['salary_to']) / 2
 
-    # Получаем курс валюты и преобразуем зарплату
+    # Получаем курс валюты для выбранного месяца и валюты
     exchange_rate = get_exchange_rate()
+
+    # Если валюта зарплаты не рубли, то конвертируем зарплату по найденному курсу
+    # Если валюта уже рубли, то оставляем зарплату без изменений
     converted_salary = salary * exchange_rate if row['salary_currency'] != 'RUR' else salary
 
-    # Возвращаем NaN, если зарплата слишком велика
+    # Если конвертированная зарплата слишком велика (больше 10 миллионов), возвращаем NaN,
+    # так как такие значения могут быть ошибочными или некорректными
     return np.nan if converted_salary > 10_000_000 else converted_salary
 
 
