@@ -7,18 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="добавил ссылку на логотип">
+    <list default="true" id="e7759ed3-018f-410e-a0ee-fd08a214da8d" name="Changes" comment="исправил недоработки, заметил только сейчас.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/currency_fetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/currency_fetch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/demand/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/demand/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/geography/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/geography/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/skills/top_skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/skills/top_skills.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/vacancies_by_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/vacancies_by_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/last_vacancies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/last_vacancies/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/last_vacancies/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/last_vacancies/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skills/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/skills/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics_page/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics_page/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +109,7 @@
       <recent name="C:\Users\dan4i\PycharmProjects\DjangoProject\DjangoProject\management\commands" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.currency_fetch">
+  <component name="RunManager" selected="Python.top_skills">
     <configuration name="currency_fetch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DjangoProject" />
       <option name="ENV_FILES" value="" />
@@ -207,7 +202,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="top_skills (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="top_skills" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DjangoProject" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -216,12 +211,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/skills" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/all_statistics/skills" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/skills/top_skills.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/all_statistics/skills/top_skills.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -257,11 +252,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.top_skills" />
         <item itemvalue="Python.currency_fetch" />
         <item itemvalue="Python.graphs" />
         <item itemvalue="Python.table" />
         <item itemvalue="Python.graphs (1)" />
-        <item itemvalue="Python.top_skills (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +302,7 @@
       <workItem from="1736876940201" duration="86000" />
       <workItem from="1736877049359" duration="61000" />
       <workItem from="1737363258555" duration="1653000" />
-      <workItem from="1737454384225" duration="6215000" />
+      <workItem from="1737454384225" duration="7806000" />
     </task>
     <task id="LOCAL-00001" summary="инициализация репозитория">
       <option name="closed" value="true" />
@@ -501,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736876895150</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="исправил недоработки, заметил только сейчас.">
+      <option name="closed" value="true" />
+      <created>1737462219036</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1737462219036</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +544,8 @@
     <MESSAGE value="дописал комментарии, поправил коды стилистически, исправил разные ошибки. финальная версия готова" />
     <MESSAGE value="исправил недочеты, из за которых не грузился сайт на хосте" />
     <MESSAGE value="добавил ссылку на логотип" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил ссылку на логотип" />
+    <MESSAGE value="исправил недоработки, заметил только сейчас." />
+    <option name="LAST_COMMIT_MESSAGE" value="исправил недоработки, заметил только сейчас." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -565,9 +569,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/manage_py$top_skills__1_.coverage" NAME="top_skills (1) Coverage Results" MODIFIED="1736855171479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/skills" />
-    <SUITE FILE_PATH="coverage/manage_py$top_skills.coverage" NAME="top_skills Coverage Results" MODIFIED="1736852850301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/skills" />
     <SUITE FILE_PATH="coverage/manage_py$graphs__1_.coverage" NAME="graphs (1) Coverage Results" MODIFIED="1736856236392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/geography" />
     <SUITE FILE_PATH="coverage/manage_py$graphs.coverage" NAME="graphs Coverage Results" MODIFIED="1736861882017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/demand" />
+    <SUITE FILE_PATH="coverage/manage_py$top_skills.coverage" NAME="top_skills Coverage Results" MODIFIED="1737462537685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/skills" />
     <SUITE FILE_PATH="coverage/manage_py$skills_prof.coverage" NAME="skills_prof Coverage Results" MODIFIED="1736840020360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/skills" />
     <SUITE FILE_PATH="coverage/manage_py$salary_by_year.coverage" NAME="salary_by_year Coverage Results" MODIFIED="1736848646938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/demand" />
     <SUITE FILE_PATH="coverage/manage_py$vacancy_by_city.coverage" NAME="vacancy_by_city Coverage Results" MODIFIED="1736850732433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/all_statistics/geography" />
